@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrea Salas | Violinista Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray-dark: #1a1a1a;
+            --gray-light: #e0e0e0;
+            --gray-mid: #888888;
+            --gold: #c9a962;
+            --gold-light: #d4b978;
+            --gold-dark: #a88b4a;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Times New Roman', serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+        }
+
+        .logo {
+            font-family: 'The Nautigal', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            font-weight: 400;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 5%;
+            background: linear-gradient(135deg, var(--black) 0%, #111 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .photo-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid var(--gold);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .photo-container::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            border-right: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            opacity: 0.4;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) contrast(1.1) sepia(20%);
+            transition: transform 0.6s ease;
+        }
+
+        .photo-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-text {
+            position: absolute;
+            color: var(--gold);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+        }
+
+        .hero-text {
+            padding: 2rem 0;
+        }
+
+        .hero-subtitle {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-title {
+            font-family: 'The Nautigal', cursive;
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--white);
+            letter-spacing: 0.02em;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--gray-light);
+            max-width: 500px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .hero-description em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            transition: all 0.4s ease;
+            background: transparent;
+            font-family: 'Crimson Text', serif;
+            font-weight: 400;
+        }
+
+        .cta-button:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-number {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: 'The Nautigal', cursive;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '—';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold);
+            background: var(--black);
+            padding: 0 10px;
+            font-size: 0.8rem;
+        }
+
+        /* About/Bio Section */
+        .about {
+            background: var(--gray-dark);
+            position: relative;
+        }
+
+        .about::before {
+            content: '"';
+            position: absolute;
+            top: 4rem;
+            left: 10%;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 15rem;
+            color: var(--gold);
+            opacity: 0.1;
+            line-height: 1;
+            font-style: italic;
+        }
+
+        .bio-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--gray-light);
+            font-weight: 400;
+        }
+
+        .bio-text em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        /* Repertoire Section - Simple List */
+        .repertoire-list-simple {
+            max-width: 900px;
+            margin: 0 auto;
+            column-count: 2;
+            column-gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .repertoire-list-simple {
+                column-count: 1;
+            }
+        }
+
+        .repertoire-list-simple ul {
+            list-style: none;
+        }
+
+        .repertoire-list-simple li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--gray-light);
+            transition: all 0.3s ease;
+            font-family: 'Crimson Text', serif;
+            break-inside: avoid;
+        }
+
+        .repertoire-list-simple li:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+
+        .repertoire-list-simple li:last-child {
+            border-bottom: none;
+        }
+
+        .artist-name {
+            color: var(--gray-mid);
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* Pricing Section - Single Package */
+        .pricing-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-card {
+            border: 1px solid var(--gold);
+            padding: 4rem 3rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.03) 0%, transparent 100%);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--gold);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .package-name {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.7rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .price {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.2rem;
+            font-weight: 400;
+            margin: 1.5rem 0;
+            color: var(--white);
+            font-style: italic;
+        }
+
+        .price-currency {
+            font-size: 1.6rem;
+            color: var(--gold);
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--gray-mid);
+            margin-bottom: 2rem;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: left;
+            max-width: 400px;
+            margin: 2rem auto;
+            counter-reset: item;
+        }
+
+        .package-features li {
+            padding: 0.8rem 0;
+            font-size: 1rem;
+            font-weight: 400;
+            padding-left: 2.5rem;
+            position: relative;
+            color: var(--gray-light);
+            font-family: 'Crimson Text', serif;
+            counter-increment: item;
+        }
+
+        .package-features li::before {
+            content: counter(item) '.';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .travel-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(201, 169, 98, 0.3);
+            color: var(--gold);
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Videos Section */
+        .videos {
+            background: var(--gray-dark);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: var(--black);
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            transition: transform 0.4s ease;
+        }
+
+        .video-item:hover .video-placeholder {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 18px solid var(--gold);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-left: 5px;
+            transition: all 0.4s ease;
+        }
+
+        .video-item:hover .play-button {
+            background: var(--gold);
+        }
+
+        .video-item:hover .play-button::after {
+            border-left-color: var(--black);
+        }
+
+        .video-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .video-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .video-description {
+            font-size: 0.9rem;
+            color: var(--gray-mid);
+            margin-top: 0.5rem;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-phone {
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin: 2rem 0;
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-note {
+            color: var(--gray-mid);
+            font-size: 1rem;
+            margin-top: 1rem;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(201, 169, 98, 0.2);
+            font-size: 0.9rem;
+            color: var(--gray-mid);
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+
+        footer span {
+            color: var(--gold);
+            font-family: 'The Nautigal', cursive;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .photo-container {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price {
+                font-size: 2.6rem;
+            }
+
+            .contact-phone {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--gold);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Andrea Salas</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#bio">Biografía</a></li>
+            <li><a href="#repertorio">Repertorio</a></li>
+            <li><a href="#tarifas">Tarifas</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    <!-- Reemplaza esto con tu foto -->
+                    <span class="photo-text">Tu foto aquí</span>
+                </div>
+            </div>
+            <div class="hero-text">
+                <p class="hero-subtitle">Violinista Profesional</p>
+                <h1 class="hero-title">Andrea Salas</h1>
+                <p class="hero-description">
+                    Violinista en eventos sociales y religiosos, interpretando repertorio para bodas, 
+                    XV años, graduaciones y ceremonias litúrgicas, tanto como solista como integrante 
+                    de distintos ensambles.
+                </p>
+                <a href="#contacto" class="cta-button">Contratar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="about" id="bio">
+        <div class="section-header">
+            <p class="section-number">01</p>
+            <h2 class="section-title">Biografía</h2>
+            <div class="divider"></div>
+        </div>
+
+        <p class="bio-text">
+            Andrea Salas Rosas es una violinista queretana con sólida formación académica en el 
+            <em>Conservatorio de Música José Guadalupe Velázquez</em>. Ha colaborado con diversos ensambles 
+            y agrupaciones de música académica, contemporánea y tradicional mexicana.
+            <br><br>
+            Ha participado en agrupaciones como la <em>Orquesta del Conservatorio</em> de su ciudad, 
+            como suplente en la <em>Orquesta de Cámara de la Facultad de Bellas Artes de la UAQ</em>; 
+            y en la <em>Orquesta de Mujeres Sonoras</em>, con la que se ha presentado en el 
+            <em>Palacio de Bellas Artes</em>. Asimismo, formó parte del <em>Mariachi Flores Queretanas</em> 
+            como violinista y cantante, integrando también el ámbito vocal a su trayectoria.
+            <br><br>
+            Actualmente es integrante de la <em>Orquesta Sinfónica de la Ciudad de Querétaro</em>. 
+            Paralelamente, mantiene una actividad constante en la música de cámara, participando en 
+            diversos ensambles y cuartetos de cuerda.
+        </p>
+    </section>
+
+    <!-- Repertoire Section - Simple List -->
+    <section id="repertorio">
+        <div class="section-header">
+            <p class="section-number">02</p>
+            <h2 class="section-title">Repertorio</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="repertoire-list-simple">
+            <ul>
+                <li>Birds of a Feather <span class="artist-name">— Billie Eilish</span></li>
+                <li>Golden Hour <span class="artist-name">— JVKE</span></li>
+                <li>Thinking Out Loud <span class="artist-name">— Ed Sheeran</span></li>
+                <li>Leave the Door Open <span class="artist-name">— Bruno Mars</span></li>
+                <li>Save Your Tears <span class="artist-name">— The Weeknd</span></li>
+                <li>Chihiro <span class="artist-name">— Billie Eilish</span></li>
+                <li>Espresso <span class="artist-name">— Sabrina Carpenter</span></li>
+                <li>Love Never Felt So Good <span class="artist-name">— Michael Jackson / Justin Timberlake</span></li>
+                <li>As It Was <span class="artist-name">— Harry Styles</span></li>
+                <li>Levitating <span class="artist-name">— Dua Lipa</span></li>
+                <li>Don't Start Now <span class="artist-name">— Dua Lipa</span></li>
+                <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
+                <li>Die with a Smile <span class="artist-name">— Bruno Mars</span></li>
+                <li>Sugar <span class="artist-name">— Maroon 5</span></li>
+                <li>Under Pressure <span class="artist-name">— Queen</span></li>
+                <li>Africa <span class="artist-name">— Toto</span></li>
+                <li>A Sky Full of Stars <span class="artist-name">— Coldplay</span></li>
+                <li>Yellow <span class="artist-name">— Coldplay</span></li>
+                <li>Let It Be <span class="artist-name">— The Beatles</span></li>
+                <li>Imagine <span class="artist-name">— John Lennon</span></li>
+                <li>Can't Help Falling in Love <span class="artist-name">— Elvis Presley</span></li>
+                <li>Merry Go Round of Life <span class="artist-name">— Howl's Moving Castle</span></li>
+                <li>Canon in D <span class="artist-name">— Pachelbel</span></li>
+                <li>Piel Canela</li>
+                <li>L.O.V.E.</li>
+                <li>Contigo <span class="artist-name">— Claudio Estrada</span></li>
+                <li>Todo Cambió <span class="artist-name">— Camila</span></li>
+                <li>Solamente Una Vez</li>
+                <li>Bésame Mucho</li>
+                <li>Te Quiero Dijiste</li>
+                <li>Historia de un Amor</li>
+                <li>Quién Será la Que Me Quiera a Mí</li>
+                <li>Cómo Han Pasado los Años</li>
+                <li>Il Mondo</li>
+                <li>Amor Eterno</li>
+                <li>Hasta Mi Final</li>
+                <li>La Chica de Ipanema <span class="artist-name">— Garota de Ipanema</span></li>
+                <li>A Thousand Years <span class="artist-name">— Twilight</span></li>
+                <li>Perfect <span class="artist-name">— Ed Sheeran</span></li>
+                <li>Tema de Lara <span class="artist-name">— Dr. Zhivago</span></li>
+                <li>Love <span class="artist-name">— Cinema Paradiso</span></li>
+                <li>Rolling in the Deep <span class="artist-name">— Adele</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="tarifas">
+        <div class="section-header">
+            <p class="section-number">03</p>
+            <h2 class="section-title">Tarifas</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <h3 class="package-name">Servicio por Hora</h3>
+                <div class="price"><span class="price-currency">$</span>2,500</div>
+                <p class="price-note">incluye:</p>
+                <ul class="package-features">
+                    <li>1 hora de música en vivo</li>
+                    <li>Equipo de audio para hasta 100 personas</li>
+                    <li>Repertorio personalizado</li>
+                    <li>Violín acústico</li>
+                </ul>
+                <div class="travel-note">
+                    * Eventos fuera de Querétaro: se agregan viáticos
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos" id="videos">
+        <div class="section-header">
+            <p class="section-number">04</p>
+            <h2 class="section-title">Videos</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">[Título de tu video]</h3>
+                    <p class="video-description">[Descripción breve]</p>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">[Título de tu video]</h3>
+                    <p class="video-description">[Descripción breve]</p>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">[Título de tu video]</h3>
+                    <p class="video-description">[Descripción breve]</p>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">[Título de tu video]</h3>
+                    <p class="video-description">[Descripción breve]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-header">
+            <p class="section-number">05</p>
+            <h2 class="section-title">Contacto</h2>
+            <div class="divider"></div>
+        </div>
+
+        <p class="contact-phone">442 333 8572</p>
+        <p class="contact-note">Para contrataciones y consultas</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>Andrea Salas</span>. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
