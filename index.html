@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrea Salas | Violinista Profesional</title>
+    <title>Andrea Salas | Violinista</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --black: #0a0a0a;
@@ -19,8 +15,6 @@
             --gray-light: #e0e0e0;
             --gray-mid: #888888;
             --gold: #c9a962;
-            --gold-light: #d4b978;
-            --gold-dark: #a88b4a;
         }
 
         body {
@@ -28,11 +22,10 @@
             background-color: var(--black);
             color: var(--white);
             line-height: 1.6;
-            overflow-x: hidden;
             font-weight: 400;
         }
 
-        /* Watermark Background Images */
+        /* Watermark Background */
         .watermark-container {
             position: fixed;
             top: 0;
@@ -46,16 +39,14 @@
 
         .watermark-img {
             position: absolute;
-            opacity: 0.08;
+            opacity: 0.06;
             filter: grayscale(100%) brightness(0.4);
-            object-fit: cover;
         }
 
         .watermark-1 {
             top: 5%;
             right: -5%;
             width: 45%;
-            height: auto;
             transform: rotate(-5deg);
         }
 
@@ -63,7 +54,6 @@
             bottom: 10%;
             left: -5%;
             width: 40%;
-            height: auto;
             transform: rotate(3deg);
         }
 
@@ -84,8 +74,6 @@
             font-family: 'The Nautigal', cursive;
             font-size: 2.5rem;
             color: var(--gold);
-            font-weight: 400;
-            letter-spacing: 0.02em;
         }
 
         .nav-links {
@@ -101,8 +89,6 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             transition: color 0.3s ease;
-            font-weight: 400;
-            font-family: 'Crimson Text', serif;
         }
 
         .nav-links a:hover {
@@ -115,7 +101,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             padding: 0 5%;
             background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(17,17,17,0.95) 100%);
         }
@@ -131,7 +116,6 @@
 
         .photo-container {
             position: relative;
-            overflow: hidden;
         }
 
         .photo-container::before {
@@ -146,28 +130,11 @@
             opacity: 0.6;
         }
 
-        .photo-container::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 100px;
-            height: 100px;
-            border-right: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            opacity: 0.4;
-        }
-
         .photo-main {
             width: 100%;
             aspect-ratio: 3/4;
             object-fit: cover;
             filter: grayscale(20%) contrast(1.1);
-            transition: transform 0.6s ease;
-        }
-
-        .photo-container:hover .photo-main {
-            transform: scale(1.05);
         }
 
         .hero-text {
@@ -179,9 +146,7 @@
             font-size: 1.2rem;
             color: var(--gold);
             margin-bottom: 1rem;
-            font-weight: 400;
             font-style: italic;
-            letter-spacing: 0.1em;
         }
 
         .hero-title {
@@ -190,23 +155,14 @@
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 2rem;
-            color: var(--white);
-            letter-spacing: 0.02em;
         }
 
         .hero-description {
             font-size: 1.1rem;
-            font-weight: 400;
             color: var(--gray-light);
             max-width: 500px;
             margin-bottom: 3rem;
             line-height: 1.8;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .hero-description em {
-            color: var(--gold);
-            font-style: italic;
         }
 
         .cta-button {
@@ -220,8 +176,7 @@
             font-size: 0.8rem;
             transition: all 0.4s ease;
             background: transparent;
-            font-family: 'Crimson Text', serif;
-            font-weight: 400;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -229,7 +184,7 @@
             color: var(--black);
         }
 
-        /* Section Styling */
+        /* Sections */
         section {
             padding: 8rem 5%;
             max-width: 1400px;
@@ -247,16 +202,13 @@
             font-size: 2rem;
             color: var(--gold);
             margin-bottom: 0.5rem;
-            font-weight: 400;
         }
 
         .section-title {
             font-family: 'The Nautigal', cursive;
             font-size: 3.5rem;
-            font-weight: 400;
             color: var(--white);
             margin-bottom: 1rem;
-            letter-spacing: 0.02em;
         }
 
         .divider {
@@ -276,36 +228,20 @@
             color: var(--gold);
             background: var(--black);
             padding: 0 10px;
-            font-size: 0.8rem;
         }
 
-        /* About/Bio Section */
+        /* Semblanza */
         .about {
             background: rgba(26, 26, 26, 0.95);
-            position: relative;
-        }
-
-        .about::before {
-            content: '"';
-            position: absolute;
-            top: 4rem;
-            left: 10%;
-            font-family: 'The Nautigal', cursive;
-            font-size: 15rem;
-            color: var(--gold);
-            opacity: 0.1;
-            line-height: 1;
         }
 
         .bio-text {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            font-family: 'Crimson Text', serif;
             font-size: 1.15rem;
             line-height: 2;
             color: var(--gray-light);
-            font-weight: 400;
         }
 
         .bio-text em {
@@ -313,7 +249,7 @@
             font-style: italic;
         }
 
-        /* Repertoire Section - Simple List */
+        /* Repertorio */
         .repertoire-list-simple {
             max-width: 1000px;
             margin: 0 auto;
@@ -322,9 +258,7 @@
         }
 
         @media (max-width: 768px) {
-            .repertoire-list-simple {
-                column-count: 1;
-            }
+            .repertoire-list-simple { column-count: 1; }
         }
 
         .repertoire-list-simple ul {
@@ -334,11 +268,9 @@
         .repertoire-list-simple li {
             padding: 0.6rem 0;
             border-bottom: 1px solid rgba(201, 169, 98, 0.15);
-            font-weight: 400;
             font-size: 1rem;
             color: var(--gray-light);
             transition: all 0.3s ease;
-            font-family: 'Crimson Text', serif;
             break-inside: avoid;
         }
 
@@ -347,196 +279,23 @@
             padding-left: 10px;
         }
 
-        .repertoire-list-simple li:last-child {
-            border-bottom: none;
-        }
-
         .artist-name {
             color: var(--gray-mid);
             font-size: 0.9em;
             font-style: italic;
         }
 
-        /* Pricing Section - Single Package */
-        .pricing-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .pricing-card {
-            border: 1px solid var(--gold);
-            padding: 4rem 3rem;
-            position: relative;
-            background: linear-gradient(135deg, rgba(201, 169, 98, 0.05) 0%, transparent 100%);
-            backdrop-filter: blur(10px);
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid var(--gold);
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .package-name {
-            font-family: 'The Nautigal', cursive;
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .price {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 3.2rem;
-            font-weight: 400;
-            margin: 1.5rem 0;
-            color: var(--white);
-            font-style: italic;
-        }
-
-        .price-currency {
-            font-size: 1.6rem;
-            color: var(--gold);
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: var(--gray-mid);
-            margin-bottom: 2rem;
-            font-family: 'Crimson Text', serif;
-            font-style: italic;
-        }
-
-        .package-features {
-            list-style: none;
-            text-align: left;
-            max-width: 400px;
-            margin: 2rem auto;
-            counter-reset: item;
-        }
-
-        .package-features li {
-            padding: 0.8rem 0;
-            font-size: 1rem;
-            font-weight: 400;
-            padding-left: 2.5rem;
-            position: relative;
-            color: var(--gray-light);
-            font-family: 'Crimson Text', serif;
-            counter-increment: item;
-        }
-
-        .package-features li::before {
-            content: counter(item) '.';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-family: 'The Nautigal', cursive;
-            font-size: 1.3rem;
-            font-weight: 400;
-        }
-
-        .travel-note {
-            text-align: center;
-            margin-top: 2rem;
-            padding: 1.5rem;
-            border-top: 1px solid rgba(201, 169, 98, 0.3);
-            color: var(--gold);
-            font-family: 'Crimson Text', serif;
-            font-style: italic;
-            font-size: 1rem;
-        }
-
-        /* Videos Section */
-        .videos {
-            background: rgba(26, 26, 26, 0.95);
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .video-item {
-            position: relative;
-            aspect-ratio: 16/9;
-            background: var(--black);
-            overflow: hidden;
-            cursor: pointer;
-            border: 1px solid rgba(201, 169, 98, 0.3);
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            transition: transform 0.4s ease;
-        }
-
-        .video-item:hover .video-placeholder {
-            transform: scale(1.05);
-        }
-
-        .play-button {
-            width: 70px;
-            height: 70px;
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-        }
-
-        .play-button::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 18px solid var(--gold);
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-left: 5px;
-            transition: all 0.4s ease;
-        }
-
-        .video-item:hover .play-button {
-            background: var(--gold);
-        }
-
-        .video-item:hover .play-button::after {
-            border-left-color: var(--black);
-        }
-
-        .video-thumbnail {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 9/16;
-            overflow: hidden;
-        }
-
-        /* Videos Carousel */
+        /* Videos Carousel - SIMPLIFIED */
         .videos-carousel {
-            max-width: 400px;
+            max-width: 350px;
             margin: 0 auto;
-            position: relative;
         }
 
         .carousel-container {
             position: relative;
-            overflow: hidden;
             border: 1px solid var(--gold);
             background: var(--black);
+            overflow: hidden;
         }
 
         .carousel-track {
@@ -547,7 +306,6 @@
         .carousel-slide {
             min-width: 100%;
             aspect-ratio: 9/16;
-            position: relative;
         }
 
         .carousel-slide iframe {
@@ -560,31 +318,22 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(201, 169, 98, 0.8);
+            background: rgba(201, 169, 98, 0.9);
             color: var(--black);
             border: none;
             width: 40px;
             height: 40px;
             font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
             z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .carousel-btn:hover {
             background: var(--gold);
         }
 
-        .carousel-btn.prev {
-            left: 10px;
-        }
-
-        .carousel-btn.next {
-            right: 10px;
-        }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
 
         .carousel-dots {
             display: flex;
@@ -599,90 +348,72 @@
             border-radius: 50%;
             background: var(--gray-mid);
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         .dot.active {
             background: var(--gold);
         }
 
-        .dot:hover {
-            background: var(--gold-light);
+        /* Pricing */
+        .pricing-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .video-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(30%) brightness(0.8);
-            transition: all 0.4s ease;
+        .pricing-card {
+            border: 1px solid var(--gold);
+            padding: 4rem 3rem;
+            background: rgba(201, 169, 98, 0.05);
         }
 
-        .video-item:hover .video-thumbnail img {
-            filter: grayscale(0%) brightness(1);
-            transform: scale(1.05);
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-        }
-
-        .video-item:hover .play-overlay {
-            background: rgba(0,0,0,0.1);
-        }
-
-
-
-        .video-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-        }
-
-        .video-title {
+        .package-name {
             font-family: 'The Nautigal', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.2rem;
+            font-style: italic;
+            margin: 1.5rem 0;
+        }
+
+        .price-currency {
             font-size: 1.6rem;
-            font-weight: 400;
             color: var(--gold);
         }
 
-        .video-description {
-            font-size: 0.9rem;
-            color: var(--gray-mid);
-            margin-top: 0.5rem;
-            font-family: 'Crimson Text', serif;
-            font-style: italic;
+        .package-features {
+            list-style: none;
+            text-align: left;
+            max-width: 400px;
+            margin: 2rem auto;
+            counter-reset: item;
         }
 
-        /* Contact Section */
+        .package-features li {
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: var(--gray-light);
+            counter-increment: item;
+        }
+
+        .package-features li::before {
+            content: counter(item) '.';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-family: 'The Nautigal', cursive;
+            font-size: 1.3rem;
+        }
+
+        /* Contact */
         .contact {
             text-align: center;
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(201, 169, 98, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .contact-phone {
@@ -690,16 +421,13 @@
             font-size: 2.5rem;
             margin: 2rem 0;
             font-family: 'The Nautigal', cursive;
-            font-weight: 400;
-            letter-spacing: 0.05em;
         }
 
         .contact-note {
             color: var(--gray-mid);
             font-size: 1rem;
-            margin-top: 1rem;
-            font-family: 'Crimson Text', serif;
             font-style: italic;
+            margin-bottom: 2rem;
         }
 
         /* Footer */
@@ -709,17 +437,110 @@
             border-top: 1px solid rgba(201, 169, 98, 0.2);
             font-size: 0.9rem;
             color: var(--gray-mid);
-            font-family: 'Crimson Text', serif;
             font-style: italic;
-            position: relative;
-            background: rgba(10, 10, 10, 0.9);
         }
 
         footer span {
             color: var(--gold);
             font-family: 'The Nautigal', cursive;
             font-size: 1.8rem;
-            font-weight: 400;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 500px;
+            background: var(--gray-dark);
+            border: 1px solid var(--gold);
+            padding: 2rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            color: var(--gold);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: var(--white);
+        }
+
+        .booking-title {
+            font-family: 'The Nautigal', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gray-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--black);
+            border: 1px solid var(--gray-mid);
+            color: var(--white);
+            font-family: 'Crimson Text', serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-light);
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-style: italic;
         }
 
         /* Responsive */
@@ -733,11 +554,6 @@
                 font-size: 4rem;
             }
 
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
             .photo-container {
                 max-width: 350px;
                 margin: 0 auto;
@@ -747,207 +563,14 @@
                 display: none;
             }
 
-            section {
-                padding: 5rem 5%;
-            }
-
             .section-title {
                 font-size: 3rem;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .price {
-                font-size: 2.6rem;
-            }
-
-            .contact-phone {
-                font-size: 2rem;
-            }
-
-            .watermark-1, .watermark-2 {
-                width: 60%;
-                opacity: 0.05;
-            }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Selection color */
-        ::selection {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        /* Booking Modal Styles */
-        .booking-modal {
-            display: none;
-            position: fixed;
-            z-index: 3000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px);
-            overflow-y: auto;
-        }
-
-        .booking-content {
-            position: relative;
-            margin: 3% auto;
-            width: 90%;
-            max-width: 600px;
-            background: var(--gray-dark);
-            border: 1px solid var(--gold);
-            padding: 3rem;
-        }
-
-        .close-booking {
-            position: absolute;
-            right: 1.5rem;
-            top: 1rem;
-            color: var(--gold);
-            font-size: 2.5rem;
-            font-weight: 300;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            font-family: 'The Nautigal', cursive;
-        }
-
-        .close-booking:hover {
-            color: var(--white);
-        }
-
-        .booking-title {
-            font-family: 'The Nautigal', cursive;
-            font-size: 2.5rem;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .booking-subtitle {
-            text-align: center;
-            color: var(--gray-mid);
-            font-family: 'Crimson Text', serif;
-            font-style: italic;
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--gray-light);
-            font-family: 'Crimson Text', serif;
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: var(--black);
-            border: 1px solid var(--gray-mid);
-            color: var(--white);
-            font-family: 'Crimson Text', serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .form-note {
-            text-align: center;
-            color: var(--gold);
-            font-family: 'Crimson Text', serif;
-            font-style: italic;
-            font-size: 0.9rem;
-            margin: 1.5rem 0;
-            padding: 1rem;
-            border-top: 1px solid rgba(201, 169, 98, 0.3);
-            border-bottom: 1px solid rgba(201, 169, 98, 0.3);
-        }
-
-        .form-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .submit-btn {
-            flex: 2;
-            padding: 1rem 2rem;
-            background: var(--gold);
-            color: var(--black);
-            border: none;
-            font-family: 'Crimson Text', serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .submit-btn:hover {
-            background: var(--gold-light);
-        }
-
-        .cancel-btn {
-            flex: 1;
-            padding: 1rem 2rem;
-            background: transparent;
-            color: var(--gray-mid);
-            border: 1px solid var(--gray-mid);
-            font-family: 'Crimson Text', serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cancel-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        @media (max-width: 768px) {
-            .booking-content {
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                max-width: none;
-                padding: 2rem;
-            }
-
-            .form-buttons {
-                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Watermark Background Images -->
+    <!-- Watermarks -->
     <div class="watermark-container">
         <img src="violin-andy.jpg" alt="" class="watermark-img watermark-1">
         <img src="andrea-perfil.jpg" alt="" class="watermark-img watermark-2">
@@ -960,17 +583,17 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#semblanza">Semblanza</a></li>
             <li><a href="#repertorio">Repertorio</a></li>
-            <li><a href="#tarifas">Tarifas</a></li>
             <li><a href="#videos">Videos</a></li>
+            <li><a href="#tarifas">Tarifas</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="inicio">
         <div class="hero-content">
             <div class="photo-container">
-                <img src="andrea-perfil.jpg" alt="Andrea Salas - Violinista" class="photo-main">
+                <img src="andrea-perfil.jpg" alt="Andrea Salas" class="photo-main">
             </div>
             <div class="hero-text">
                 <p class="hero-subtitle">Violinista</p>
@@ -980,19 +603,18 @@
                     Ofrece música en vivo con un repertorio amplio adaptado a cada momento.
                     Disponible para presentaciones como solista o en conjunto con otros músicos.
                 </p>
-                <a href="#" class="cta-button" onclick="openBookingModal(); return false;">Contratar</a>
+                <button class="cta-button" onclick="openBookingModal()">Contratar</button>
             </div>
         </div>
     </section>
 
-    <!-- Bio Section -->
+    <!-- Semblanza -->
     <section class="about" id="semblanza">
         <div class="section-header">
             <p class="section-number">01</p>
             <h2 class="section-title">Semblanza</h2>
             <div class="divider"></div>
         </div>
-
         <p class="bio-text">
             Andrea Salas Rosas es violinista queretana con formación en el 
             <em>Conservatorio de Música José Guadalupe Velázquez</em> y experiencia en la 
@@ -1011,14 +633,13 @@
         </p>
     </section>
 
-    <!-- Repertoire Section - Simple List -->
+    <!-- Repertorio -->
     <section id="repertorio">
         <div class="section-header">
             <p class="section-number">02</p>
             <h2 class="section-title">Repertorio</h2>
             <div class="divider"></div>
         </div>
-
         <div class="repertoire-list-simple">
             <ul>
                 <li>A Sky Full of Stars <span class="artist-name">— Coldplay</span></li>
@@ -1077,10 +698,54 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="tarifas">
+    <!-- Videos Carousel -->
+    <section id="videos">
         <div class="section-header">
             <p class="section-number">03</p>
+            <h2 class="section-title">Videos</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="videos-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/bEmaU4QPEFk" allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/O_SZwfOEFTw" allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/sjzLYvOYR4g" allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/IJbejrbxKQI" allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/JIahBNhdGj8" allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/EwULQX24Sr4" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+                <span class="dot" onclick="goToSlide(4)"></span>
+                <span class="dot" onclick="goToSlide(5)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifas -->
+    <section id="tarifas">
+        <div class="section-header">
+            <p class="section-number">04</p>
             <h2 class="section-title">Tarifas</h2>
             <div class="divider"></div>
         </div>
@@ -1089,127 +754,18 @@
             <div class="pricing-card">
                 <h3 class="package-name">Servicio por Hora</h3>
                 <div class="price"><span class="price-currency">$</span>2,500</div>
-                <p class="price-note">incluye:</p>
+                <p style="color: var(--gray-mid); font-style: italic; margin-bottom: 2rem;">incluye:</p>
                 <ul class="package-features">
                     <li>1 hora de música en vivo</li>
                     <li>Equipo de audio para hasta 100 personas</li>
                     <li>Repertorio personalizado</li>
                     <li>Violín acústico</li>
                 </ul>
-
             </div>
         </div>
     </section>
 
-    <!-- Videos Section -->
-    <section class="videos" id="videos">
-        <div class="section-header">
-            <p class="section-number">04</p>
-            <h2 class="section-title">Videos</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="video-grid">
-            <div class="video-item" onclick="openVideoModal('1YjAQyawYGyLPWv4C06LTZS42OckO9s5w', 'Video 1')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 1">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 1</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-            <div class="video-item" onclick="openVideoModal('17Qt-Flj8U0WVitM3pCgljPJ2XA3eSVrB', 'Video 2')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 2">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 2</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-            <div class="video-item" onclick="openVideoModal('1-FiyYwaohRzi4j2DU5XdpZuaGUJErRV8', 'Video 3')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 3">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 3</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-            <div class="video-item" onclick="openVideoModal('13wIihab4aiDxZmPClzkRzcgJgpcWm2qJ', 'Video 4')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 4">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 4</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-            <div class="video-item" onclick="openVideoModal('1GGmuV-fvPAkr20UOB9WGqZi2cRdeopY3', 'Video 5')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 5">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 5</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-            <div class="video-item" onclick="openVideoModal('1wo-Y3CORVw4BwmZ01EJMYw4GxwyOCSz6', 'Video 6')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 6">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 6</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-            <div class="video-item" onclick="openVideoModal('1Yg0cZ2gApebtmAQRK5Foq279yq0XoDUh', 'Video 7')">
-                <div class="video-thumbnail">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas - Video 7">
-                    <div class="play-overlay">
-                        <div class="play-button"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <h3 class="video-title">Video 7</h3>
-                    <p class="video-description">Interpretación en vivo</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeVideoModal()">&times;</span>
-            <h3 id="modalTitle" class="modal-title"></h3>
-            <div class="video-container">
-                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <p class="modal-note">Si el video no se reproduce, <a id="driveLink" href="" target="_blank">haz clic aquí para verlo en Google Drive</a></p>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
+    <!-- Contacto -->
     <section class="contact" id="contacto">
         <div class="section-header">
             <p class="section-number">05</p>
@@ -1218,139 +774,48 @@
         </div>
 
         <p class="contact-phone">442 333 8572</p>
-        <p class="contact-note">Para contrataciones y consultas</p>
-        <br>
-        <a href="#" class="cta-button" onclick="openBookingModal(); return false;">Contratar</a>
+        <p class="contact-note">Para contrataciones y consultas vía WhatsApp</p>
+        <button class="cta-button" onclick="openBookingModal()">Contratar</button>
     </section>
 
-    <script>
-        // Booking Modal Functions
-        function openBookingModal() {
-            const modal = document.getElementById('bookingModal');
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeBookingModal() {
-            const modal = document.getElementById('bookingModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('clientName').value;
-            const eventType = document.getElementById('eventType').value;
-            const date = document.getElementById('eventDate').value;
-            const location = document.getElementById('eventLocation').value;
-            const eventTime = document.getElementById('eventTime').value;
-            const requests = document.getElementById('specialRequests').value || 'Ninguna';
-
-            const message = `Hola, soy ${name}.%0A%0A` +
-                           `Me interesa contratar sus servicios de violinista para un ${eventType}.%0A%0A` +
-                           `*Fecha:* ${date}%0A` +
-                           `*Lugar:* ${location}%0A` +
-                           `*Horario:* ${eventTime}%0A` +
-                           `*Solicitudes especiales:* ${requests}%0A%0A` +
-                           `Quedo atento/a a su respuesta. ¡Gracias!`;
-
-            const whatsappUrl = `https://wa.me/524423338572?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-
-            closeBookingModal();
-        }
-
-        // Close booking modal when clicking outside
-        window.addEventListener('click', function(event) {
-            const bookingModal = document.getElementById('bookingModal');
-            const videoModal = document.getElementById('videoModal');
-
-            if (event.target == bookingModal) {
-                closeBookingModal();
-            }
-            if (event.target == videoModal) {
-                closeVideoModal();
-            }
-        });
-
-        // Video Modal Functions
-        function openVideoModal(videoId, title) {
-            const modal = document.getElementById('videoModal');
-            const frame = document.getElementById('videoFrame');
-            const modalTitle = document.getElementById('modalTitle');
-            const youtubeLink = document.getElementById('youtubeLink');
-
-            // YouTube embed URL for Shorts
-            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            const directLink = `https://youtube.com/shorts/${videoId}`;
-
-            frame.src = embedUrl;
-            modalTitle.textContent = title;
-            youtubeLink.href = directLink;
-
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const frame = document.getElementById('videoFrame');
-
-            modal.style.display = 'none';
-            frame.src = '';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modals with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeVideoModal();
-                closeBookingModal();
-            }
-        });
-    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>Andrea Salas</span>. Todos los derechos reservados.</p>
+    </footer>
 
     <!-- Booking Modal -->
-    <div id="bookingModal" class="booking-modal">
-        <div class="booking-content">
-            <span class="close-booking" onclick="closeBookingModal()">&times;</span>
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookingModal()">&times;</span>
             <h3 class="booking-title">Solicitar Cotización</h3>
-            <p class="booking-subtitle">Complete el formulario y será contactado a la brevedad</p>
-
-            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+            <form onsubmit="sendToWhatsApp(event)">
                 <div class="form-group">
-                    <label for="clientName">Nombre completo *</label>
-                    <input type="text" id="clientName" name="clientName" required>
+                    <label>Nombre completo *</label>
+                    <input type="text" id="clientName" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="eventType">Tipo de evento *</label>
-                    <select id="eventType" name="eventType" required>
+                    <label>Tipo de evento *</label>
+                    <select id="eventType" required>
                         <option value="">Seleccione...</option>
                         <option value="Boda">Boda</option>
                         <option value="XV años">XV años</option>
                         <option value="Graduación">Graduación</option>
                         <option value="Ceremonia religiosa">Ceremonia religiosa</option>
                         <option value="Evento corporativo">Evento corporativo</option>
-                        <option value="Evento privado">Evento privado</option>
                         <option value="Otro">Otro</option>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="eventDate">Fecha del evento *</label>
-                    <input type="date" id="eventDate" name="eventDate" required>
+                    <label>Fecha del evento *</label>
+                    <input type="date" id="eventDate" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="eventLocation">Dirección del evento *</label>
-                    <input type="text" id="eventLocation" name="eventLocation" placeholder="Lugar o dirección completa" required>
+                    <label>Dirección del evento *</label>
+                    <input type="text" id="eventLocation" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="eventTime">Horario aproximado del evento (24h) *</label>
-                    <select id="eventTime" name="eventTime" required>
+                    <label>Horario aproximado del evento (24h) *</label>
+                    <select id="eventTime" required>
                         <option value="">Seleccione horario (formato 24h)</option>
                         <option value="12:00">12:00 hrs</option>
                         <option value="13:00">13:00 hrs</option>
@@ -1365,27 +830,77 @@
                         <option value="Otro">Otro (especificar en comentarios)</option>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="specialRequests">Repertorio o solicitudes especiales</label>
-                    <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Canciones específicas, tipo de música preferida, etc."></textarea>
+                    <label>Comentarios adicionales</label>
+                    <textarea id="specialRequests" rows="3"></textarea>
                 </div>
-
-                <div class="form-note">
-                    <p class="form-note">* Campos obligatorios</p>
-                </div>
-
-                <div class="form-buttons">
-                    <button type="submit" class="submit-btn">Enviar solicitud por WhatsApp</button>
-                    <button type="button" class="cancel-btn" onclick="closeBookingModal()">Cancelar</button>
-                </div>
+                <button type="submit" class="submit-btn">Enviar por WhatsApp</button>
+                <p class="form-note">* Campos obligatorios</p>
             </form>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 <span>Andrea Salas</span>. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Scripts -->
+    <script>
+        // Carousel
+        let currentSlide = 0;
+        const totalSlides = 6;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-play
+        setInterval(() => moveCarousel(1), 5000);
+
+        // Modal
+        function openBookingModal() {
+            document.getElementById('bookingModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target == modal) closeBookingModal();
+        }
+
+        // WhatsApp
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value;
+            const type = document.getElementById('eventType').value;
+            const date = document.getElementById('eventDate').value;
+            const location = document.getElementById('eventLocation').value;
+            const time = document.getElementById('eventTime').value;
+            const comments = document.getElementById('specialRequests').value || 'Ninguno';
+
+            const message = `Hola, soy ${name}. Me interesa contratar los servicios de violin para un ${type} el día ${date} a las ${time} hrs. Dirección: ${location}. Comentarios: ${comments}`;
+
+            window.open(`https://wa.me/524423338572?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
 </body>
 </html>
