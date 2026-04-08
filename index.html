@@ -137,7 +137,7 @@
             opacity: 1;
         }
 
-        .video-slide iframe {
+        .video-slide video {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -146,9 +146,10 @@
             width: auto;
             height: auto;
             transform: translate(-50%, -50%) scale(1.2);
-            opacity: 0.2;
-            filter: grayscale(100%) brightness(0.5);
+            opacity: 0.25;
+            filter: grayscale(100%) brightness(0.6);
             pointer-events: none;
+            object-fit: cover;
         }
 
         .video-overlay {
@@ -623,7 +624,6 @@
             }
         }
     </style>
-<base target="_blank">
 </head>
 <body>
     <!-- Watermarks -->
@@ -651,13 +651,29 @@
         <div class="video-background">
             <div class="video-slider">
                 <div class="video-slide active">
-                    <iframe src="https://www.youtube.com/embed/bEmaU4QPEFk?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=bEmaU4QPEFk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video1.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="video-slide">
-                    <iframe src="https://www.youtube.com/embed/O_SZwfOEFTw?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=O_SZwfOEFTw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="video-slide">
-                    <iframe src="https://www.youtube.com/embed/sjzLYvOYR4g?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=sjzLYvOYR4g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-slide">
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video4.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-slide">
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video5.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
             <div class="video-overlay"></div>
@@ -943,7 +959,7 @@
 
         // Background video slider
         let currentBgSlide = 0;
-        const bgSlides = document.querySelectorAll('.video-slide');
+        const bgSlides = document.querySelectorAll('.video-background .video-slide');
 
         function changeBgSlide() {
             bgSlides.forEach(slide => slide.classList.remove('active'));
@@ -951,7 +967,7 @@
             bgSlides[currentBgSlide].classList.add('active');
         }
 
-        setInterval(changeBgSlide, 10000); // Change every 10 seconds
+        setInterval(changeBgSlide, 8000); // Change every 8 seconds
 
         // Modal
         function openBookingModal() {
