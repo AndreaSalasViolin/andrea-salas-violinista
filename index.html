@@ -25,38 +25,6 @@
             font-weight: 400;
         }
 
-        /* Watermark Background */
-        .watermark-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .watermark-img {
-            position: absolute;
-            opacity: 0.06;
-            filter: grayscale(100%) brightness(0.4);
-        }
-
-        .watermark-1 {
-            top: 5%;
-            right: -5%;
-            width: 45%;
-            transform: rotate(-5deg);
-        }
-
-        .watermark-2 {
-            bottom: 10%;
-            left: -5%;
-            width: 40%;
-            transform: rotate(3deg);
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -68,6 +36,7 @@
             align-items: center;
             z-index: 1000;
             background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+            transition: background 0.3s ease;
         }
 
         .logo {
@@ -95,7 +64,7 @@
             color: var(--gold);
         }
 
-        /* Hero Section */
+        /* Hero Section - Video Background with Fade */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -107,11 +76,11 @@
         }
 
         .video-background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
@@ -145,20 +114,22 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            transform: translate(-50%, -50%) scale(1.2);
-            opacity: 0.25;
-            filter: grayscale(100%) brightness(0.6);
+            transform: translate(-50%, -50%) scale(1.1);
+            /* Videos nítidos al inicio - sin filtro de grayscale */
+            filter: brightness(0.8) contrast(1.1);
             pointer-events: none;
             object-fit: cover;
         }
 
+        /* Overlay que se oscurece con el scroll */
         .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.9) 100%);
+            background: linear-gradient(135deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.4) 100%);
+            transition: background 0.1s ease;
         }
 
         .hero-content {
@@ -168,57 +139,44 @@
             max-width: 1400px;
             width: 100%;
             align-items: center;
-        }
-
-        .photo-container {
             position: relative;
+            z-index: 2;
         }
 
-        .photo-container::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid var(--gold);
-            z-index: -1;
-            opacity: 0.6;
-        }
-
-        .photo-main {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            filter: grayscale(20%) contrast(1.1);
-        }
-
+        /* Foto principal removida del hero, ahora en repertorio */
         .hero-text {
             padding: 2rem 0;
+            grid-column: 1 / -1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero-subtitle {
             font-family: 'Libre Baskerville', serif;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--gold);
             margin-bottom: 1rem;
             font-style: italic;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-title {
             font-family: 'The Nautigal', cursive;
-            font-size: 5rem;
+            font-size: 6rem;
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            color: var(--gray-light);
-            max-width: 500px;
-            margin-bottom: 3rem;
+            font-size: 1.2rem;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 3rem;
             line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
         .cta-button {
@@ -231,7 +189,8 @@
             letter-spacing: 0.2em;
             font-size: 0.8rem;
             transition: all 0.4s ease;
-            background: transparent;
+            background: rgba(10,10,10,0.5);
+            backdrop-filter: blur(10px);
             cursor: pointer;
         }
 
@@ -286,9 +245,12 @@
             padding: 0 10px;
         }
 
-        /* Semblanza */
+        /* Semblanza - Fondo sólido para legibilidad */
         .about {
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(10, 10, 10, 0.98);
+            position: relative;
+            z-index: 2;
+            margin-top: 0;
         }
 
         .bio-text {
@@ -305,12 +267,84 @@
             font-style: italic;
         }
 
-        /* Repertorio */
-        .repertoire-list-simple {
-            max-width: 1000px;
+        /* Repertorio - Ahora con la foto de Andrea */
+        #repertorio {
+            background: rgba(10, 10, 10, 0.98);
+            position: relative;
+            z-index: 2;
+        }
+
+        .repertoire-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .photo-section {
+            position: sticky;
+            top: 100px;
+        }
+
+        .photo-container {
+            position: relative;
+        }
+
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid var(--gold);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .photo-main {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            /* Foto más opaca como solicitaste */
+            filter: grayscale(30%) contrast(1.1) brightness(0.7);
+            opacity: 0.85;
+            transition: all 0.5s ease;
+        }
+
+        .photo-main:hover {
+            filter: grayscale(20%) contrast(1.1) brightness(0.8);
+            opacity: 0.95;
+        }
+
+        .photo-caption {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            font-family: 'The Nautigal', cursive;
+            font-size: 1.8rem;
+        }
+
+        .repertoire-list-simple {
             column-count: 2;
-            column-gap: 4rem;
+            column-gap: 3rem;
+        }
+
+        @media (max-width: 968px) {
+            .repertoire-layout {
+                grid-template-columns: 1fr;
+            }
+            .photo-section {
+                position: relative;
+                top: 0;
+                max-width: 350px;
+                margin: 0 auto 3rem;
+            }
+            .repertoire-list-simple { 
+                column-count: 1; 
+            }
         }
 
         @media (max-width: 768px) {
@@ -341,7 +375,13 @@
             font-style: italic;
         }
 
-        /* Videos Carousel - SIMPLIFIED */
+        /* Videos Carousel */
+        #videos {
+            background: rgba(10, 10, 10, 0.98);
+            position: relative;
+            z-index: 2;
+        }
+
         .videos-carousel {
             max-width: 350px;
             margin: 0 auto;
@@ -411,6 +451,12 @@
         }
 
         /* Pricing */
+        #tarifas {
+            background: rgba(10, 10, 10, 0.98);
+            position: relative;
+            z-index: 2;
+        }
+
         .pricing-container {
             max-width: 600px;
             margin: 0 auto;
@@ -469,6 +515,9 @@
 
         /* Contact */
         .contact {
+            background: rgba(10, 10, 10, 0.98);
+            position: relative;
+            z-index: 2;
             text-align: center;
         }
 
@@ -494,6 +543,9 @@
             font-size: 0.9rem;
             color: var(--gray-mid);
             font-style: italic;
+            background: var(--black);
+            position: relative;
+            z-index: 2;
         }
 
         footer span {
@@ -610,11 +662,6 @@
                 font-size: 4rem;
             }
 
-            .photo-container {
-                max-width: 350px;
-                margin: 0 auto;
-            }
-
             .nav-links {
                 display: none;
             }
@@ -624,14 +671,10 @@
             }
         }
     </style>
+<base target="_blank">
+<base target="_blank">
 </head>
 <body>
-    <!-- Watermarks -->
-    <div class="watermark-container">
-        <img src="violin-andy.jpg" alt="" class="watermark-img watermark-1">
-        <img src="andrea-perfil.jpg" alt="" class="watermark-img watermark-2">
-    </div>
-
     <!-- Navigation -->
     <nav>
         <div class="logo">Andrea Salas</div>
@@ -645,10 +688,9 @@
         </ul>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero - Solo texto, videos nítidos de fondo -->
     <section class="hero" id="inicio">
-        <!-- Video Background -->
-        <div class="video-background">
+        <div class="video-background" id="videoBackground">
             <div class="video-slider">
                 <div class="video-slide active">
                     <video autoplay muted loop playsinline preload="auto">
@@ -676,12 +718,9 @@
                     </video>
                 </div>
             </div>
-            <div class="video-overlay"></div>
+            <div class="video-overlay" id="videoOverlay"></div>
         </div>
         <div class="hero-content">
-            <div class="photo-container">
-                <img src="andrea-perfil.jpg" alt="Andrea Salas" class="photo-main">
-            </div>
             <div class="hero-text">
                 <p class="hero-subtitle">Violinista</p>
                 <h1 class="hero-title">Andrea Salas</h1>
@@ -720,68 +759,78 @@
         </p>
     </section>
 
-    <!-- Repertorio -->
+    <!-- Repertorio - Ahora con la foto de Andrea -->
     <section id="repertorio">
         <div class="section-header">
             <p class="section-number">02</p>
             <h2 class="section-title">Repertorio</h2>
             <div class="divider"></div>
         </div>
-        <div class="repertoire-list-simple">
-            <ul>
-                <li>A Sky Full of Stars <span class="artist-name">— Coldplay</span></li>
-                <li>A Thousand Years <span class="artist-name">— Christina Perri</span></li>
-                <li>Africa <span class="artist-name">— Toto</span></li>
-                <li>All You Need Is Love <span class="artist-name">— The Beatles</span></li>
-                <li>Amor eterno <span class="artist-name">— Juan Gabriel</span></li>
-                <li>As It Was <span class="artist-name">— Harry Styles</span></li>
-                <li>Bailando <span class="artist-name">— Enrique Iglesias</span></li>
-                <li>Bésame mucho <span class="artist-name">— Consuelo Velázquez</span></li>
-                <li>Birds of a Feather <span class="artist-name">— Billie Eilish</span></li>
-                <li>Brillas <span class="artist-name">— León Larregui</span></li>
-                <li>Canon en Re <span class="artist-name">— Johann Pachelbel</span></li>
-                <li>Chihiro <span class="artist-name">— Billie Eilish</span></li>
-                <li>Cien años <span class="artist-name">— Pedro Infante</span></li>
-                <li>Cold Heart <span class="artist-name">— Elton John / Dua Lipa</span></li>
-                <li>Cómo han pasado los años <span class="artist-name">— Rocío Dúrcal</span></li>
-                <li>Contigo <span class="artist-name">— Claudio Estrada</span></li>
-                <li>Dance Monkey <span class="artist-name">— Tones and I</span></li>
-                <li>Despacito <span class="artist-name">— Luis Fonsi</span></li>
-                <li>Die With a Smile <span class="artist-name">— Bruno Mars</span></li>
-                <li>Don't Start Now <span class="artist-name">— Dua Lipa</span></li>
-                <li>Espresso <span class="artist-name">— Sabrina Carpenter</span></li>
-                <li>Golden Hour <span class="artist-name">— JVKE</span></li>
-                <li>Hasta mi final <span class="artist-name">— Il Divo</span></li>
-                <li>Here Comes the Sun <span class="artist-name">— The Beatles</span></li>
-                <li>Historia de un amor <span class="artist-name">— Carlos Eleta Almarán</span></li>
-                <li>Il Mondo <span class="artist-name">— Jimmy Fontana</span></li>
-                <li>Imagine <span class="artist-name">— John Lennon</span></li>
-                <li>La chica de Ipanema <span class="artist-name">— Antônio Carlos Jobim</span></li>
-                <li>Leave the Door Open <span class="artist-name">— Bruno Mars</span></li>
-                <li>Let It Be <span class="artist-name">— The Beatles</span></li>
-                <li>Levitating <span class="artist-name">— Dua Lipa</span></li>
-                <li>Love <span class="artist-name">— Nat King Cole</span></li>
-                <li>Love Never Felt So Good <span class="artist-name">— Michael Jackson / Justin Timberlake</span></li>
-                <li>Merry-Go-Round of Life <span class="artist-name">— Joe Hisaishi</span></li>
-                <li>Perfect <span class="artist-name">— Ed Sheeran</span></li>
-                <li>Piel canela <span class="artist-name">— Bobby Capó</span></li>
-                <li>Rolling in the Deep <span class="artist-name">— Adele</span></li>
-                <li>Sabor a mí <span class="artist-name">— Álvaro Carrillo</span></li>
-                <li>Save Your Tears <span class="artist-name">— The Weeknd</span></li>
-                <li>September <span class="artist-name">— Earth, Wind & Fire</span></li>
-                <li>Solamente una vez <span class="artist-name">— Agustín Lara</span></li>
-                <li>Somos novios <span class="artist-name">— Armando Manzanero</span></li>
-                <li>Sugar <span class="artist-name">— Maroon 5</span></li>
-                <li>Te quiero dijiste <span class="artist-name">— María Grever</span></li>
-                <li>Tema de Lara <span class="artist-name">— Maurice Jarre</span></li>
-                <li>Thinking Out Loud <span class="artist-name">— Ed Sheeran</span></li>
-                <li>Todo cambió <span class="artist-name">— Camila</span></li>
-                <li>Under Pressure <span class="artist-name">— Queen</span></li>
-                <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
-                <li>Yesterday <span class="artist-name">— The Beatles</span></li>
-                <li>Yellow Submarine <span class="artist-name">— The Beatles</span></li>
-                <li>¿Quién será la que me quiera a mí?</li>
-            </ul>
+        
+        <div class="repertoire-layout">
+            <div class="photo-section">
+                <div class="photo-container">
+                    <img src="andrea-perfil.jpg" alt="Andrea Salas" class="photo-main">
+                </div>
+                <p class="photo-caption">Andrea Salas</p>
+            </div>
+            
+            <div class="repertoire-list-simple">
+                <ul>
+                    <li>A Sky Full of Stars <span class="artist-name">— Coldplay</span></li>
+                    <li>A Thousand Years <span class="artist-name">— Christina Perri</span></li>
+                    <li>Africa <span class="artist-name">— Toto</span></li>
+                    <li>All You Need Is Love <span class="artist-name">— The Beatles</span></li>
+                    <li>Amor eterno <span class="artist-name">— Juan Gabriel</span></li>
+                    <li>As It Was <span class="artist-name">— Harry Styles</span></li>
+                    <li>Bailando <span class="artist-name">— Enrique Iglesias</span></li>
+                    <li>Bésame mucho <span class="artist-name">— Consuelo Velázquez</span></li>
+                    <li>Birds of a Feather <span class="artist-name">— Billie Eilish</span></li>
+                    <li>Brillas <span class="artist-name">— León Larregui</span></li>
+                    <li>Canon en Re <span class="artist-name">— Johann Pachelbel</span></li>
+                    <li>Chihiro <span class="artist-name">— Billie Eilish</span></li>
+                    <li>Cien años <span class="artist-name">— Pedro Infante</span></li>
+                    <li>Cold Heart <span class="artist-name">— Elton John / Dua Lipa</span></li>
+                    <li>Cómo han pasado los años <span class="artist-name">— Rocío Dúrcal</span></li>
+                    <li>Contigo <span class="artist-name">— Claudio Estrada</span></li>
+                    <li>Dance Monkey <span class="artist-name">— Tones and I</span></li>
+                    <li>Despacito <span class="artist-name">— Luis Fonsi</span></li>
+                    <li>Die With a Smile <span class="artist-name">— Bruno Mars</span></li>
+                    <li>Don't Start Now <span class="artist-name">— Dua Lipa</span></li>
+                    <li>Espresso <span class="artist-name">— Sabrina Carpenter</span></li>
+                    <li>Golden Hour <span class="artist-name">— JVKE</span></li>
+                    <li>Hasta mi final <span class="artist-name">— Il Divo</span></li>
+                    <li>Here Comes the Sun <span class="artist-name">— The Beatles</span></li>
+                    <li>Historia de un amor <span class="artist-name">— Carlos Eleta Almarán</span></li>
+                    <li>Il Mondo <span class="artist-name">— Jimmy Fontana</span></li>
+                    <li>Imagine <span class="artist-name">— John Lennon</span></li>
+                    <li>La chica de Ipanema <span class="artist-name">— Antônio Carlos Jobim</span></li>
+                    <li>Leave the Door Open <span class="artist-name">— Bruno Mars</span></li>
+                    <li>Let It Be <span class="artist-name">— The Beatles</span></li>
+                    <li>Levitating <span class="artist-name">— Dua Lipa</span></li>
+                    <li>Love <span class="artist-name">— Nat King Cole</span></li>
+                    <li>Love Never Felt So Good <span class="artist-name">— Michael Jackson / Justin Timberlake</span></li>
+                    <li>Merry-Go-Round of Life <span class="artist-name">— Joe Hisaishi</span></li>
+                    <li>Perfect <span class="artist-name">— Ed Sheeran</span></li>
+                    <li>Piel canela <span class="artist-name">— Bobby Capó</span></li>
+                    <li>Rolling in the Deep <span class="artist-name">— Adele</span></li>
+                    <li>Sabor a mí <span class="artist-name">— Álvaro Carrillo</span></li>
+                    <li>Save Your Tears <span class="artist-name">— The Weeknd</span></li>
+                    <li>September <span class="artist-name">— Earth, Wind & Fire</span></li>
+                    <li>Solamente una vez <span class="artist-name">— Agustín Lara</span></li>
+                    <li>Somos novios <span class="artist-name">— Armando Manzanero</span></li>
+                    <li>Sugar <span class="artist-name">— Maroon 5</span></li>
+                    <li>Te quiero dijiste <span class="artist-name">— María Grever</span></li>
+                    <li>Tema de Lara <span class="artist-name">— Maurice Jarre</span></li>
+                    <li>Thinking Out Loud <span class="artist-name">— Ed Sheeran</span></li>
+            <li>Todo cambió <span class="artist-name">— Camila</span></li>
+            <li>Under Pressure <span class="artist-name">— Queen</span></li>
+            <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
+            <li>Yesterday <span class="artist-name">— The Beatles</span></li>
+            <li>Yellow Submarine <span class="artist-name">— The Beatles</span></li>
+            <li>¿Quién será la que me quiera a mí?</li>
+        </ul>
+            </div>
         </div>
     </section>
 
@@ -929,6 +978,28 @@
 
     <!-- Scripts -->
     <script>
+        // Scroll effect for video background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const videoOverlay = document.getElementById('videoOverlay');
+            const videoBackground = document.getElementById('videoBackground');
+            
+            // Calcular opacidad basada en el scroll (0 a 1)
+            const opacity = Math.min(scrolled / (windowHeight * 0.8), 1);
+            
+            // Oscurecer el overlay conforme se hace scroll
+            const darkness = 0.3 + (opacity * 0.7); // De 0.3 a 1.0
+            videoOverlay.style.background = `linear-gradient(135deg, rgba(10,10,10,${darkness}) 0%, rgba(10,10,10,${darkness + 0.1}) 100%)`;
+            
+            // Desvanecer completamente el video después de cierto punto
+            if (scrolled > windowHeight * 0.5) {
+                videoBackground.style.opacity = 1 - ((scrolled - windowHeight * 0.5) / (windowHeight * 0.5));
+            } else {
+                videoBackground.style.opacity = 1;
+            }
+        });
+
         // Carousel
         let currentSlide = 0;
         const totalSlides = 6;
@@ -967,7 +1038,7 @@
             bgSlides[currentBgSlide].classList.add('active');
         }
 
-        setInterval(changeBgSlide, 8000); // Change every 8 seconds
+        setInterval(changeBgSlide, 8000);
 
         // Modal
         function openBookingModal() {
