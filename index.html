@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrea Salas | Violinista</title>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=The+Seasons&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('https://fonts.cdnfonts.com/s/94387/TheSeasons-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('https://fonts.cdnfonts.com/s/94387/TheSeasons-Italic.woff') format('woff');
+            font-weight: 400;
+            font-style: italic;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -18,11 +31,11 @@
         }
 
         body {
-            font-family: 'Crimson Text', 'Times New Roman', serif;
+            font-family: 'Nunito', sans-serif;
             background-color: var(--black);
             color: var(--white);
             line-height: 1.6;
-            font-weight: 400;
+            font-weight: 300;
         }
 
         /* Navigation */
@@ -58,6 +71,8 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             transition: color 0.3s ease;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
         }
 
         .nav-links a:hover {
@@ -114,14 +129,14 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            transform: translate(-50%, -50%) scale(1.1);
-            /* Videos nítidos al inicio - sin filtro de grayscale */
+            /* Ajuste para videos verticales - muestra la parte inferior (rostros) */
+            transform: translate(-50%, -40%) scale(1.1);
+            object-position: center bottom;
             filter: brightness(0.8) contrast(1.1);
             pointer-events: none;
             object-fit: cover;
         }
 
-        /* Overlay que se oscurece con el scroll */
         .video-overlay {
             position: absolute;
             top: 0;
@@ -134,7 +149,7 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 5rem;
             max-width: 1400px;
             width: 100%;
@@ -143,40 +158,41 @@
             z-index: 2;
         }
 
-        /* Foto principal removida del hero, ahora en repertorio */
         .hero-text {
             padding: 2rem 0;
-            grid-column: 1 / -1;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .hero-subtitle {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'The Seasons', serif;
             font-size: 1.4rem;
             color: var(--gold);
             margin-bottom: 1rem;
             font-style: italic;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 0.1em;
         }
 
         .hero-title {
             font-family: 'The Nautigal', cursive;
-            font-size: 6rem;
+            font-size: 7rem;
             font-weight: 400;
-            line-height: 1.1;
+            line-height: 1;
             margin-bottom: 2rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
             color: var(--white);
             max-width: 600px;
             margin: 0 auto 3rem;
             line-height: 1.8;
             text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+            font-weight: 300;
         }
 
         .cta-button {
@@ -192,6 +208,8 @@
             background: rgba(10,10,10,0.5);
             backdrop-filter: blur(10px);
             cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
         }
 
         .cta-button:hover {
@@ -213,15 +231,16 @@
         }
 
         .section-number {
-            font-family: 'The Nautigal', cursive;
+            font-family: 'The Seasons', serif;
             font-size: 2rem;
             color: var(--gold);
             margin-bottom: 0.5rem;
+            font-style: italic;
         }
 
         .section-title {
             font-family: 'The Nautigal', cursive;
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: var(--white);
             margin-bottom: 1rem;
         }
@@ -243,9 +262,10 @@
             color: var(--gold);
             background: var(--black);
             padding: 0 10px;
+            font-family: 'The Seasons', serif;
         }
 
-        /* Semblanza - Fondo sólido para legibilidad */
+        /* Semblanza */
         .about {
             background: rgba(10, 10, 10, 0.98);
             position: relative;
@@ -257,98 +277,74 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 2;
             color: var(--gray-light);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 300;
         }
 
         .bio-text em {
             color: var(--gold);
             font-style: italic;
+            font-family: 'The Seasons', serif;
         }
 
-        /* Repertorio - Ahora con la foto de Andrea */
+        /* Repertorio - Foto de fondo pequeña y opaca */
         #repertorio {
             background: rgba(10, 10, 10, 0.98);
             position: relative;
             z-index: 2;
+            min-height: 100vh;
         }
 
-        .repertoire-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: start;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .photo-section {
-            position: sticky;
-            top: 100px;
-        }
-
-        .photo-container {
-            position: relative;
-        }
-
-        .photo-container::before {
-            content: '';
+        .repertoire-background {
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid var(--gold);
-            z-index: -1;
-            opacity: 0.6;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            max-width: 400px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .photo-main {
+        .repertoire-background img {
             width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            /* Foto más opaca como solicitaste */
-            filter: grayscale(30%) contrast(1.1) brightness(0.7);
-            opacity: 0.85;
-            transition: all 0.5s ease;
+            height: auto;
+            filter: grayscale(50%) blur(2px);
         }
 
-        .photo-main:hover {
-            filter: grayscale(20%) contrast(1.1) brightness(0.8);
-            opacity: 0.95;
-        }
-
-        .photo-caption {
-            text-align: center;
-            margin-top: 1.5rem;
-            color: var(--gold);
-            font-family: 'The Nautigal', cursive;
-            font-size: 1.8rem;
+        .repertoire-content {
+            position: relative;
+            z-index: 1;
         }
 
         .repertoire-list-simple {
-            column-count: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            column-count: 3;
             column-gap: 3rem;
         }
 
         @media (max-width: 968px) {
-            .repertoire-layout {
-                grid-template-columns: 1fr;
-            }
-            .photo-section {
-                position: relative;
-                top: 0;
-                max-width: 350px;
-                margin: 0 auto 3rem;
-            }
             .repertoire-list-simple { 
-                column-count: 1; 
+                column-count: 2; 
+            }
+            .repertoire-background {
+                width: 60%;
+                opacity: 0.1;
             }
         }
 
         @media (max-width: 768px) {
-            .repertoire-list-simple { column-count: 1; }
+            .repertoire-list-simple { 
+                column-count: 1; 
+            }
+            .repertoire-background {
+                width: 80%;
+            }
         }
 
         .repertoire-list-simple ul {
@@ -358,10 +354,12 @@
         .repertoire-list-simple li {
             padding: 0.6rem 0;
             border-bottom: 1px solid rgba(201, 169, 98, 0.15);
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--gray-light);
             transition: all 0.3s ease;
             break-inside: avoid;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 300;
         }
 
         .repertoire-list-simple li:hover {
@@ -371,83 +369,96 @@
 
         .artist-name {
             color: var(--gray-mid);
-            font-size: 0.9em;
+            font-size: 0.85em;
             font-style: italic;
+            font-family: 'The Seasons', serif;
         }
 
-        /* Videos Carousel */
+        /* Videos - Galería elegante tipo masonry */
         #videos {
             background: rgba(10, 10, 10, 0.98);
             position: relative;
             z-index: 2;
         }
 
-        .videos-carousel {
-            max-width: 350px;
+        .videos-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .carousel-container {
+        @media (max-width: 968px) {
+            .videos-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .videos-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-item {
             position: relative;
-            border: 1px solid var(--gold);
-            background: var(--black);
-            overflow: hidden;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
             aspect-ratio: 9/16;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            background: var(--gray-dark);
         }
 
-        .carousel-slide iframe {
+        .video-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.2);
+        }
+
+        .video-item iframe {
             width: 100%;
             height: 100%;
             border: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
         }
 
-        .carousel-btn {
+        .video-item:hover iframe {
+            opacity: 1;
+        }
+
+        .video-overlay-play {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(201, 169, 98, 0.9);
-            color: var(--black);
-            border: none;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background: var(--gold);
-        }
-
-        .carousel-btn.prev { left: 10px; }
-        .carousel-btn.next { right: 10px; }
-
-        .carousel-dots {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 1.5rem;
+            background: rgba(10,10,10,0.4);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
-        .dot {
-            width: 10px;
-            height: 10px;
+        .video-item:hover .video-overlay-play {
+            opacity: 0;
+        }
+
+        .play-icon {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--gold);
             border-radius: 50%;
-            background: var(--gray-mid);
-            cursor: pointer;
-        }
-
-        .dot.active {
-            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+            background: rgba(10,10,10,0.6);
         }
 
         /* Pricing */
@@ -471,13 +482,13 @@
 
         .package-name {
             font-family: 'The Nautigal', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 1rem;
         }
 
         .price {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'The Seasons', serif;
             font-size: 3.2rem;
             font-style: italic;
             margin: 1.5rem 0;
@@ -502,6 +513,8 @@
             position: relative;
             color: var(--gray-light);
             counter-increment: item;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 300;
         }
 
         .package-features li::before {
@@ -509,7 +522,7 @@
             position: absolute;
             left: 0;
             color: var(--gold);
-            font-family: 'The Nautigal', cursive;
+            font-family: 'The Seasons', serif;
             font-size: 1.3rem;
         }
 
@@ -523,7 +536,7 @@
 
         .contact-phone {
             color: var(--gold);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin: 2rem 0;
             font-family: 'The Nautigal', cursive;
         }
@@ -533,6 +546,7 @@
             font-size: 1rem;
             font-style: italic;
             margin-bottom: 2rem;
+            font-family: 'The Seasons', serif;
         }
 
         /* Footer */
@@ -546,6 +560,7 @@
             background: var(--black);
             position: relative;
             z-index: 2;
+            font-family: 'Nunito', sans-serif;
         }
 
         footer span {
@@ -591,7 +606,7 @@
 
         .booking-title {
             font-family: 'The Nautigal', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--gold);
             text-align: center;
             margin-bottom: 1.5rem;
@@ -606,6 +621,8 @@
             color: var(--gray-light);
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
         }
 
         .form-group input,
@@ -616,7 +633,8 @@
             background: var(--black);
             border: 1px solid var(--gray-mid);
             color: var(--white);
-            font-family: 'Crimson Text', serif;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 300;
         }
 
         .form-group input:focus,
@@ -633,14 +651,15 @@
             color: var(--black);
             border: none;
             cursor: pointer;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Nunito', sans-serif;
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            font-weight: 600;
         }
 
         .submit-btn:hover {
-            background: var(--gold-light);
+            background: #d4b876;
         }
 
         .form-note {
@@ -649,17 +668,13 @@
             font-size: 0.9rem;
             margin-top: 1rem;
             font-style: italic;
+            font-family: 'The Seasons', serif;
         }
 
         /* Responsive */
         @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
             .hero-title {
-                font-size: 4rem;
+                font-size: 5rem;
             }
 
             .nav-links {
@@ -668,6 +683,10 @@
 
             .section-title {
                 font-size: 3rem;
+            }
+            
+            .contact-phone {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -688,23 +707,23 @@
         </ul>
     </nav>
 
-    <!-- Hero - Solo texto, videos nítidos de fondo -->
+    <!-- Hero - Videos en orden inverso (7,6,5,4,3,2,1) -->
     <section class="hero" id="inicio">
         <div class="video-background" id="videoBackground">
             <div class="video-slider">
                 <div class="video-slide active">
                     <video autoplay muted loop playsinline preload="auto">
-                        <source src="video1.mp4" type="video/mp4">
+                        <source src="video7.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-slide">
                     <video autoplay muted loop playsinline preload="auto">
-                        <source src="video2.mp4" type="video/mp4">
+                        <source src="video6.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-slide">
                     <video autoplay muted loop playsinline preload="auto">
-                        <source src="video3.mp4" type="video/mp4">
+                        <source src="video5.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-slide">
@@ -714,7 +733,17 @@
                 </div>
                 <div class="video-slide">
                     <video autoplay muted loop playsinline preload="auto">
-                        <source src="video5.mp4" type="video/mp4">
+                        <source src="video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-slide">
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-slide">
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video1.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -759,20 +788,17 @@
         </p>
     </section>
 
-    <!-- Repertorio - Ahora con la foto de Andrea -->
+    <!-- Repertorio - Foto de fondo pequeña y opaca -->
     <section id="repertorio">
-        <div class="section-header">
-            <p class="section-number">02</p>
-            <h2 class="section-title">Repertorio</h2>
-            <div class="divider"></div>
+        <div class="repertoire-background">
+            <img src="andrea-perfil.jpg" alt="Andrea Salas">
         </div>
         
-        <div class="repertoire-layout">
-            <div class="photo-section">
-                <div class="photo-container">
-                    <img src="andrea-perfil.jpg" alt="Andrea Salas" class="photo-main">
-                </div>
-                <p class="photo-caption">Andrea Salas</p>
+        <div class="repertoire-content">
+            <div class="section-header">
+                <p class="section-number">02</p>
+                <h2 class="section-title">Repertorio</h2>
+                <div class="divider"></div>
             </div>
             
             <div class="repertoire-list-simple">
@@ -823,18 +849,18 @@
                     <li>Te quiero dijiste <span class="artist-name">— María Grever</span></li>
                     <li>Tema de Lara <span class="artist-name">— Maurice Jarre</span></li>
                     <li>Thinking Out Loud <span class="artist-name">— Ed Sheeran</span></li>
-            <li>Todo cambió <span class="artist-name">— Camila</span></li>
-            <li>Under Pressure <span class="artist-name">— Queen</span></li>
-            <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
-            <li>Yesterday <span class="artist-name">— The Beatles</span></li>
-            <li>Yellow Submarine <span class="artist-name">— The Beatles</span></li>
-            <li>¿Quién será la que me quiera a mí?</li>
-        </ul>
+                    <li>Todo cambió <span class="artist-name">— Camila</span></li>
+                    <li>Under Pressure <span class="artist-name">— Queen</span></li>
+                    <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
+                    <li>Yesterday <span class="artist-name">— The Beatles</span></li>
+                    <li>Yellow Submarine <span class="artist-name">— The Beatles</span></li>
+                    <li>¿Quién será la que me quiera a mí?</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Videos Carousel -->
+    <!-- Videos - Galería elegante sin auto-play -->
     <section id="videos">
         <div class="section-header">
             <p class="section-number">03</p>
@@ -842,38 +868,42 @@
             <div class="divider"></div>
         </div>
 
-        <div class="videos-carousel">
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-slide">
-                        <iframe src="https://www.youtube.com/embed/bEmaU4QPEFk" allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-slide">
-                        <iframe src="https://www.youtube.com/embed/O_SZwfOEFTw" allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-slide">
-                        <iframe src="https://www.youtube.com/embed/sjzLYvOYR4g" allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-slide">
-                        <iframe src="https://www.youtube.com/embed/IJbejrbxKQI" allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-slide">
-                        <iframe src="https://www.youtube.com/embed/JIahBNhdGj8" allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-slide">
-                        <iframe src="https://www.youtube.com/embed/EwULQX24Sr4" allowfullscreen></iframe>
-                    </div>
+        <div class="videos-gallery">
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/v_qpw22ot6Q" allowfullscreen></iframe>
+                <div class="video-overlay-play">
+                    <div class="play-icon">▶</div>
                 </div>
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
-                <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
             </div>
-            <div class="carousel-dots">
-                <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span>
-                <span class="dot" onclick="goToSlide(2)"></span>
-                <span class="dot" onclick="goToSlide(3)"></span>
-                <span class="dot" onclick="goToSlide(4)"></span>
-                <span class="dot" onclick="goToSlide(5)"></span>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/bEmaU4QPEFk" allowfullscreen></iframe>
+                <div class="video-overlay-play">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/O_SZwfOEFTw" allowfullscreen></iframe>
+                <div class="video-overlay-play">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/sjzLYvOYR4g" allowfullscreen></iframe>
+                <div class="video-overlay-play">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/IJbejrbxKQI" allowfullscreen></iframe>
+                <div class="video-overlay-play">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/JIahBNhdGj8" allowfullscreen></iframe>
+                <div class="video-overlay-play">
+                    <div class="play-icon">▶</div>
+                </div>
             </div>
         </div>
     </section>
@@ -890,7 +920,7 @@
             <div class="pricing-card">
                 <h3 class="package-name">Servicio por Hora</h3>
                 <div class="price"><span class="price-currency">$</span>2,500</div>
-                <p style="color: var(--gray-mid); font-style: italic; margin-bottom: 2rem;">incluye:</p>
+                <p style="color: var(--gray-mid); font-style: italic; margin-bottom: 2rem; font-family: 'The Seasons', serif;">incluye:</p>
                 <ul class="package-features">
                     <li>1 hora de música en vivo</li>
                     <li>Equipo de audio para hasta 100 personas</li>
@@ -985,14 +1015,10 @@
             const videoOverlay = document.getElementById('videoOverlay');
             const videoBackground = document.getElementById('videoBackground');
             
-            // Calcular opacidad basada en el scroll (0 a 1)
             const opacity = Math.min(scrolled / (windowHeight * 0.8), 1);
-            
-            // Oscurecer el overlay conforme se hace scroll
-            const darkness = 0.3 + (opacity * 0.7); // De 0.3 a 1.0
+            const darkness = 0.3 + (opacity * 0.7);
             videoOverlay.style.background = `linear-gradient(135deg, rgba(10,10,10,${darkness}) 0%, rgba(10,10,10,${darkness + 0.1}) 100%)`;
             
-            // Desvanecer completamente el video después de cierto punto
             if (scrolled > windowHeight * 0.5) {
                 videoBackground.style.opacity = 1 - ((scrolled - windowHeight * 0.5) / (windowHeight * 0.5));
             } else {
@@ -1000,41 +1026,14 @@
             }
         });
 
-        // Carousel
-        let currentSlide = 0;
-        const totalSlides = 6;
-
-        function updateCarousel() {
-            const track = document.getElementById('carouselTrack');
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function moveCarousel(direction) {
-            currentSlide += direction;
-            if (currentSlide < 0) currentSlide = totalSlides - 1;
-            if (currentSlide >= totalSlides) currentSlide = 0;
-            updateCarousel();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
-
-        // Auto-play
-        setInterval(() => moveCarousel(1), 8000);
-
-        // Background video slider
+        // Background video slider - orden inverso 7,6,5,4,3,2,1
         let currentBgSlide = 0;
         const bgSlides = document.querySelectorAll('.video-background .video-slide');
+        const totalBgSlides = bgSlides.length;
 
         function changeBgSlide() {
             bgSlides.forEach(slide => slide.classList.remove('active'));
-            currentBgSlide = (currentBgSlide + 1) % bgSlides.length;
+            currentBgSlide = (currentBgSlide + 1) % totalBgSlides;
             bgSlides[currentBgSlide].classList.add('active');
         }
 
