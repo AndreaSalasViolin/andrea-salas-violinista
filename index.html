@@ -371,36 +371,54 @@
                 column-count: 1; 
             }
             
-            /* CAMBIOS EN SEMBLANZA PARA MÓVIL */
-            /* Ocultar la imagen de fondo en móvil */
+            /* VISTA MÓVIL - SEMBLANZA CON FOTO DE FONDO OPACA */
             .about-background {
-                display: none;
+                display: block;
+                width: 100%;
+                opacity: 0.3; /* Foto más opaca */
             }
             
-            /* Ajustar el contenido para que ocupe todo el ancho y esté centrado */
+            .about-background::after {
+                background: linear-gradient(to bottom, rgba(32,54,46,0.7), rgba(32,54,46,0.95));
+                width: 100%;
+                height: 100%;
+                top: auto;
+                bottom: 0;
+            }
+            
             .about-content {
                 margin: 0 auto;
                 padding: 2rem;
+                background: rgba(32,54,46,0.85); /* Fondo opaco para legibilidad */
                 max-width: 95%;
                 text-align: center;
-                /* Quitar fondo opaco, usar el fondo de la sección */
-                background: transparent;
             }
             
-            /* Centrar los títulos de la sección semblanza */
-            .about .section-header {
+            /* CENTRAR TÍTULOS DE SEMBLANZA - FORMA ESPECÍFICA */
+            .about-content .section-header {
                 text-align: center !important;
+                margin-bottom: 2rem;
             }
             
-            .about .section-number {
+            .about-content .section-number {
                 text-align: center !important;
+                display: block;
+                width: 100%;
             }
             
-            .about .section-title {
+            .about-content .section-title {
                 text-align: center !important;
+                display: block;
+                width: 100%;
             }
             
-            /* Centrar el texto de la biografía */
+            /* CENTRAR TÍTULO DE SERVICIO PERSONALIZADO (TARIFAS) */
+            #tarifas .package-name {
+                text-align: center !important;
+                width: 100%;
+                display: block;
+            }
+            
             .bio-text {
                 text-align: center;
             }
@@ -413,12 +431,6 @@
             }
             .section-title {
                 font-size: 2.2rem;
-            }
-            .section-header {
-                text-align: center !important;
-            }
-            .section-header h2, .section-header p {
-                text-align: center !important;
             }
         }
 
