@@ -289,6 +289,20 @@
             padding: 3rem;
         }
 
+        /* Estilos específicos desktop para semblanza */
+        .about-content .section-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .about-content .section-number {
+            text-align: left;
+        }
+
+        .about-content .section-title {
+            text-align: left;
+        }
+
         .bio-text {
             text-align: left;
             font-size: 1.1rem;
@@ -384,28 +398,49 @@
                 background: transparent;
             }
             
-            /* CENTRAR TÍTULOS DE SEMBLANZA - FORZADO */
-            #semblanza .section-header,
-            #semblanza .section-number,
-            #semblanza .section-title {
+            /* CENTRAR TÍTULOS DE SEMBLANZA EN MÓVIL - SOBRESCRIBIR ESTILOS DESKTOP */
+            .about-content .section-header {
                 text-align: center !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                width: 100% !important;
-                display: block !important;
+                margin-bottom: 2rem;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
             
-            /* CENTRAR TÍTULO DE SERVICIO PERSONALIZADO (TARIFAS) - FORZADO */
-            #tarifas .pricing-card {
+            .about-content .section-number {
                 text-align: center !important;
+                display: block;
+                width: 100%;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            .about-content .section-title {
+                text-align: center !important;
+                display: block;
+                width: 100%;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            /* CENTRAR TÍTULO DE SERVICIO PERSONALIZADO (TARIFAS) EN MÓVIL */
+            #tarifas .pricing-card {
+                text-align: center;
             }
             
             #tarifas .package-name {
                 text-align: center !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                width: 100% !important;
-                display: block !important;
+                display: block;
+                width: 100%;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
             
             .bio-text {
@@ -924,9 +959,9 @@
         </div>
         
         <div class="about-content">
-            <div class="section-header" style="margin-bottom: 3rem; text-align: left;">
-                <p class="section-number" style="text-align: left;">01</p>
-                <h2 class="section-title" style="text-align: left;">Semblanza</h2>
+            <div class="section-header">
+                <p class="section-number">01</p>
+                <h2 class="section-title">Semblanza</h2>
             </div>
             
             <p class="bio-text">
