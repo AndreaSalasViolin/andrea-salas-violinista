@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrea Salas | Violinista</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=The+Seasons&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Stylish+BC&display=swap" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'The Seasons';
-            src: url('https://fonts.cdnfonts.com/s/94387/TheSeasons-Regular.woff') format('woff');
+            font-family: 'Stylish BC';
+            src: url('https://fonts.cdnfonts.com/s/15388/StylishBC-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
         }
         @font-face {
-            font-family: 'The Seasons';
-            src: url('https://fonts.cdnfonts.com/s/94387/TheSeasons-Italic.woff') format('woff');
+            font-family: 'Stylish BC';
+            src: url('https://fonts.cdnfonts.com/s/15388/StylishBC-Italic.woff') format('woff');
             font-weight: 400;
             font-style: italic;
         }
@@ -22,12 +22,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --black: #0a0a0a;
+            --black: #20362E;
             --white: #fafafa;
-            --gray-dark: #1a1a1a;
+            --gray-dark: #2a4a3e;
             --gray-light: #e0e0e0;
             --gray-mid: #888888;
-            --gold: #c9a962;
+            --gold: #DCBC44;
         }
 
         body {
@@ -43,19 +43,25 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 2rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+            background: linear-gradient(to bottom, rgba(32,54,46,0.95), transparent);
             transition: background 0.3s ease;
         }
 
         .logo {
-            font-family: 'The Nautigal', cursive;
-            font-size: 2.5rem;
-            color: var(--gold);
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -143,7 +149,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.4) 100%);
+            background: linear-gradient(135deg, rgba(32,54,46,0.3) 0%, rgba(32,54,46,0.4) 100%);
             transition: background 0.1s ease;
         }
 
@@ -166,7 +172,7 @@
         }
 
         .hero-subtitle {
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
             font-size: 1.4rem;
             color: var(--gold);
             margin-bottom: 1rem;
@@ -176,12 +182,13 @@
         }
 
         .hero-title {
-            font-family: 'The Nautigal', cursive;
-            font-size: 7rem;
+            font-family: 'Stylish BC', serif;
+            font-size: 6rem;
             font-weight: 400;
             line-height: 1;
             margin-bottom: 2rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            color: var(--gold);
         }
 
         .hero-description {
@@ -205,7 +212,7 @@
             letter-spacing: 0.2em;
             font-size: 0.8rem;
             transition: all 0.4s ease;
-            background: rgba(10,10,10,0.5);
+            background: rgba(32,54,46,0.5);
             backdrop-filter: blur(10px);
             cursor: pointer;
             font-family: 'Nunito', sans-serif;
@@ -233,7 +240,7 @@
         }
 
         .section-number {
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
             font-size: 2rem;
             color: var(--gold);
             margin-bottom: 0.5rem;
@@ -241,9 +248,9 @@
         }
 
         .section-title {
-            font-family: 'The Nautigal', cursive;
+            font-family: 'Stylish BC', serif;
             font-size: 4rem;
-            color: var(--white);
+            color: var(--gold);
             margin-bottom: 1rem;
         }
 
@@ -264,12 +271,12 @@
             color: var(--gold);
             background: var(--black);
             padding: 0 10px;
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
         }
 
         /* Semblanza - Foto de fondo hacia la izquierda */
         .about {
-            background: rgba(10, 10, 10, 0.4);
+            background: rgba(32, 54, 46, 0.4);
             position: relative;
             z-index: 2;
             margin-top: 0;
@@ -306,7 +313,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(10,10,10,0.95));
+            background: linear-gradient(to right, transparent, rgba(32,54,46,0.95));
         }
 
         .about-content {
@@ -330,12 +337,12 @@
         .bio-text em {
             color: var(--gold);
             font-style: italic;
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
         }
 
         /* Repertorio - Acordeón */
         #repertorio {
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(32, 54, 46, 0.98);
             position: relative;
             z-index: 2;
         }
@@ -355,13 +362,13 @@
             align-items: center;
             transition: all 0.3s ease;
             color: var(--gold);
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
             font-size: 1.2rem;
             font-style: italic;
         }
 
         .accordion-header:hover {
-            background: rgba(201, 169, 98, 0.1);
+            background: rgba(220, 188, 68, 0.1);
         }
 
         .accordion-icon {
@@ -377,10 +384,10 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.3s ease;
-            background: rgba(26, 26, 26, 0.5);
-            border-left: 1px solid rgba(201, 169, 98, 0.3);
-            border-right: 1px solid rgba(201, 169, 98, 0.3);
-            border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+            background: rgba(42, 74, 62, 0.5);
+            border-left: 1px solid rgba(220, 188, 68, 0.3);
+            border-right: 1px solid rgba(220, 188, 68, 0.3);
+            border-bottom: 1px solid rgba(220, 188, 68, 0.3);
         }
 
         .accordion-content.active {
@@ -400,7 +407,7 @@
             .about-content {
                 margin-right: 0;
                 padding: 2rem;
-                background: rgba(10,10,10,0.8);
+                background: rgba(32,54,46,0.8);
             }
             .about-background {
                 width: 100%;
@@ -413,7 +420,7 @@
 
         .repertoire-list-simple li {
             padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+            border-bottom: 1px solid rgba(220, 188, 68, 0.15);
             font-size: 0.95rem;
             color: var(--gray-light);
             transition: all 0.3s ease;
@@ -431,12 +438,12 @@
             color: var(--gray-mid);
             font-size: 0.85em;
             font-style: italic;
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
         }
 
         /* Videos - Carrusel manual elegante */
         #videos {
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(32, 54, 46, 0.98);
             position: relative;
             z-index: 2;
         }
@@ -477,7 +484,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(32, 54, 46, 0.8);
             color: var(--gold);
             border: 1px solid var(--gold);
             width: 50px;
@@ -503,7 +510,7 @@
             .carousel-btn.prev { left: 10px; }
             .carousel-btn.next { right: 10px; }
             .carousel-btn {
-                background: rgba(10, 10, 10, 0.9);
+                background: rgba(32, 54, 46, 0.9);
             }
         }
 
@@ -537,14 +544,14 @@
             text-align: center;
             margin-top: 1rem;
             color: var(--gray-mid);
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
             font-style: italic;
             font-size: 0.9rem;
         }
 
         /* Tarifas - Sin precio, con información clara */
         #tarifas {
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(32, 54, 46, 0.98);
             position: relative;
             z-index: 2;
         }
@@ -557,12 +564,12 @@
         .pricing-card {
             border: 1px solid var(--gold);
             padding: 4rem 3rem;
-            background: rgba(201, 169, 98, 0.05);
+            background: rgba(220, 188, 68, 0.05);
             text-align: center;
         }
 
         .package-name {
-            font-family: 'The Nautigal', cursive;
+            font-family: 'Stylish BC', serif;
             font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 2rem;
@@ -591,7 +598,7 @@
             position: relative;
             color: var(--gray-light);
             counter-increment: item;
-            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+            border-bottom: 1px solid rgba(220, 188, 68, 0.1);
             font-family: 'Nunito', sans-serif;
             font-weight: 300;
         }
@@ -601,7 +608,7 @@
             position: absolute;
             left: 0;
             color: var(--gold);
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
             font-size: 1.2rem;
             font-style: italic;
             width: 30px;
@@ -616,7 +623,7 @@
         }
 
         .pricing-note {
-            background: rgba(201, 169, 98, 0.1);
+            background: rgba(220, 188, 68, 0.1);
             border-left: 3px solid var(--gold);
             padding: 1.5rem;
             text-align: left;
@@ -625,7 +632,7 @@
 
         .pricing-note-title {
             color: var(--gold);
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
             font-style: italic;
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
@@ -640,7 +647,7 @@
 
         /* Contact */
         .contact {
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(32, 54, 46, 0.98);
             position: relative;
             z-index: 2;
             text-align: center;
@@ -650,7 +657,7 @@
             color: var(--gold);
             font-size: 3rem;
             margin: 2rem 0;
-            font-family: 'The Nautigal', cursive;
+            font-family: 'Stylish BC', serif;
         }
 
         .contact-note {
@@ -658,14 +665,14 @@
             font-size: 1rem;
             font-style: italic;
             margin-bottom: 2rem;
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
         }
 
         /* Footer */
         footer {
             padding: 3rem 5%;
             text-align: center;
-            border-top: 1px solid rgba(201, 169, 98, 0.2);
+            border-top: 1px solid rgba(220, 188, 68, 0.2);
             font-size: 0.9rem;
             color: var(--gray-mid);
             font-style: italic;
@@ -677,11 +684,11 @@
 
         footer span {
             color: var(--gold);
-            font-family: 'The Nautigal', cursive;
+            font-family: 'Stylish BC', serif;
             font-size: 1.8rem;
         }
 
-        /* Modal */
+        /* Modal - CORREGIDO PARA SCROLL */
         .modal {
             display: none;
             position: fixed;
@@ -690,7 +697,9 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.95);
+            background-color: rgba(0,0,0,0.9);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .modal-content {
@@ -701,6 +710,7 @@
             background: var(--gray-dark);
             border: 1px solid var(--gold);
             padding: 2rem;
+            margin-bottom: 5%;
         }
 
         .close-modal {
@@ -710,6 +720,7 @@
             color: var(--gold);
             font-size: 2rem;
             cursor: pointer;
+            z-index: 10;
         }
 
         .close-modal:hover {
@@ -717,7 +728,7 @@
         }
 
         .booking-title {
-            font-family: 'The Nautigal', cursive;
+            font-family: 'Stylish BC', serif;
             font-size: 2.5rem;
             color: var(--gold);
             text-align: center;
@@ -768,10 +779,11 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 600;
+            margin-top: 1rem;
         }
 
         .submit-btn:hover {
-            background: #d4b876;
+            background: #e5c95c;
         }
 
         .form-note {
@@ -780,13 +792,13 @@
             font-size: 0.9rem;
             margin-top: 1rem;
             font-style: italic;
-            font-family: 'The Seasons', serif;
+            font-family: 'Stylish BC', serif;
         }
 
         /* Responsive */
         @media (max-width: 968px) {
             .hero-title {
-                font-size: 5rem;
+                font-size: 4rem;
             }
 
             .nav-links {
@@ -805,13 +817,21 @@
                 margin: 0 auto;
                 max-width: 90%;
             }
+            
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">Andrea Salas</div>
+        <div class="logo">
+            <img src="Logo elegante de Andrea Salas.png" alt="Andrea Salas Violinista">
+        </div>
         <ul class="nav-links">
             <li><a onclick="scrollToSection('inicio')">Inicio</a></li>
             <li><a onclick="scrollToSection('semblanza')">Semblanza</a></li>
@@ -1090,7 +1110,7 @@
         <p>&copy; 2026 <span>Andrea Salas</span>. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Booking Modal -->
+    <!-- Booking Modal - CORREGIDO -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeBookingModal()">&times;</span>
@@ -1166,7 +1186,7 @@
             
             const opacity = Math.min(scrolled / (windowHeight * 0.8), 1);
             const darkness = 0.3 + (opacity * 0.7);
-            videoOverlay.style.background = `linear-gradient(135deg, rgba(10,10,10,${darkness}) 0%, rgba(10,10,10,${darkness + 0.1}) 100%)`;
+            videoOverlay.style.background = `linear-gradient(135deg, rgba(32,54,46,${darkness}) 0%, rgba(32,54,46,${darkness + 0.1}) 100%)`;
             
             if (scrolled > windowHeight * 0.5) {
                 videoBackground.style.opacity = 1 - ((scrolled - windowHeight * 0.5) / (windowHeight * 0.5));
@@ -1196,7 +1216,6 @@
             content.classList.toggle('active');
             header.classList.toggle('active');
             
-            // Cambiar texto del botón
             const span = header.querySelector('span:first-child');
             if (content.classList.contains('active')) {
                 span.textContent = 'Ocultar lista de canciones';
@@ -1232,21 +1251,31 @@
             updateCarousel();
         }
 
-        // Modal
+        // Modal - CORREGIDO PARA SCROLL
         function openBookingModal() {
-            document.getElementById('bookingModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll del body
         }
 
         function closeBookingModal() {
-            document.getElementById('bookingModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll del body
         }
 
+        // Cerrar modal al hacer clic fuera
         window.onclick = function(event) {
             const modal = document.getElementById('bookingModal');
-            if (event.target == modal) closeBookingModal();
+            if (event.target === modal) {
+                closeBookingModal();
+            }
         }
+
+        // Prevenir que el scroll del modal afecte al body
+        document.getElementById('bookingModal').addEventListener('wheel', function(e) {
+            e.stopPropagation();
+        });
 
         // WhatsApp
         function sendToWhatsApp(e) {
