@@ -73,6 +73,7 @@
             transition: color 0.3s ease;
             font-family: 'Nunito', sans-serif;
             font-weight: 400;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -266,9 +267,9 @@
             font-family: 'The Seasons', serif;
         }
 
-        /* Semblanza - Foto de fondo elegante y grande */
+        /* Semblanza - Foto de fondo hacia la izquierda */
         .about {
-            background: rgba(10, 10, 10, 0.85);
+            background: rgba(10, 10, 10, 0.4);
             position: relative;
             z-index: 2;
             margin-top: 0;
@@ -283,7 +284,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 70%;
             height: 100%;
             z-index: 0;
             overflow: hidden;
@@ -293,27 +294,34 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
-            filter: grayscale(100%) brightness(0.3) contrast(1.1);
-            opacity: 0.6;
-            transform: scale(1.1);
+            object-position: center center;
+            filter: grayscale(100%) brightness(0.4) contrast(1.1);
+            opacity: 0.8;
+        }
+
+        .about-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(10,10,10,0.95));
         }
 
         .about-content {
             position: relative;
             z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem;
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(201, 169, 98, 0.2);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: 5%;
+            padding: 3rem;
         }
 
         .bio-text {
-            text-align: center;
-            font-size: 1.15rem;
-            line-height: 2.2;
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 2;
             color: var(--gray-light);
             font-family: 'Nunito', sans-serif;
             font-weight: 300;
@@ -325,29 +333,77 @@
             font-family: 'The Seasons', serif;
         }
 
-        /* Repertorio */
+        /* Repertorio - Acordeón */
         #repertorio {
             background: rgba(10, 10, 10, 0.98);
             position: relative;
             z-index: 2;
         }
 
-        .repertoire-list-simple {
-            max-width: 900px;
+        .repertoire-accordion {
+            max-width: 800px;
             margin: 0 auto;
-            column-count: 3;
-            column-gap: 3rem;
         }
 
-        @media (max-width: 968px) {
-            .repertoire-list-simple { 
-                column-count: 2; 
-            }
+        .accordion-header {
+            background: transparent;
+            border: 1px solid var(--gold);
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            color: var(--gold);
+            font-family: 'The Seasons', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .accordion-header:hover {
+            background: rgba(201, 169, 98, 0.1);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            background: rgba(26, 26, 26, 0.5);
+            border-left: 1px solid rgba(201, 169, 98, 0.3);
+            border-right: 1px solid rgba(201, 169, 98, 0.3);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 2rem;
+        }
+
+        .repertoire-list-simple {
+            column-count: 2;
+            column-gap: 3rem;
         }
 
         @media (max-width: 768px) {
             .repertoire-list-simple { 
                 column-count: 1; 
+            }
+            .about-content {
+                margin-right: 0;
+                padding: 2rem;
+                background: rgba(10,10,10,0.8);
+            }
+            .about-background {
+                width: 100%;
             }
         }
 
@@ -378,7 +434,7 @@
             font-family: 'The Seasons', serif;
         }
 
-        /* Videos - Carrusel elegante manual */
+        /* Videos - Carrusel manual elegante */
         #videos {
             background: rgba(10, 10, 10, 0.98);
             position: relative;
@@ -486,7 +542,7 @@
             font-size: 0.9rem;
         }
 
-        /* Pricing */
+        /* Tarifas - Sin precio, con información clara */
         #tarifas {
             background: rgba(10, 10, 10, 0.98);
             position: relative;
@@ -494,61 +550,92 @@
         }
 
         .pricing-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            text-align: center;
         }
 
         .pricing-card {
             border: 1px solid var(--gold);
             padding: 4rem 3rem;
             background: rgba(201, 169, 98, 0.05);
+            text-align: center;
         }
 
         .package-name {
             font-family: 'The Nautigal', cursive;
             font-size: 2.5rem;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .price {
-            font-family: 'The Seasons', serif;
-            font-size: 3.2rem;
-            font-style: italic;
-            margin: 1.5rem 0;
-        }
-
-        .price-currency {
-            font-size: 1.6rem;
-            color: var(--gold);
+        .package-intro {
+            color: var(--gray-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 300;
         }
 
         .package-features {
             list-style: none;
             text-align: left;
-            max-width: 400px;
-            margin: 2rem auto;
+            max-width: 500px;
+            margin: 0 auto 3rem;
             counter-reset: item;
         }
 
         .package-features li {
-            padding: 0.8rem 0;
-            padding-left: 2.5rem;
+            padding: 1rem 0;
+            padding-left: 3rem;
             position: relative;
             color: var(--gray-light);
             counter-increment: item;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
             font-family: 'Nunito', sans-serif;
             font-weight: 300;
         }
 
         .package-features li::before {
-            content: counter(item) '.';
+            content: counter(item);
             position: absolute;
             left: 0;
             color: var(--gold);
             font-family: 'The Seasons', serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            font-style: italic;
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .pricing-note {
+            background: rgba(201, 169, 98, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .pricing-note-title {
+            color: var(--gold);
+            font-family: 'The Seasons', serif;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .pricing-note p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* Contact */
@@ -715,37 +802,31 @@
             }
 
             .about-content {
-                padding: 2rem;
-                margin: 0 1rem;
+                margin: 0 auto;
+                max-width: 90%;
             }
         }
     </style>
-<base target="_blank">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="logo">Andrea Salas</div>
         <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#semblanza">Semblanza</a></li>
-            <li><a href="#repertorio">Repertorio</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#tarifas">Tarifas</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a onclick="scrollToSection('inicio')">Inicio</a></li>
+            <li><a onclick="scrollToSection('semblanza')">Semblanza</a></li>
+            <li><a onclick="scrollToSection('repertorio')">Repertorio</a></li>
+            <li><a onclick="scrollToSection('videos')">Videos</a></li>
+            <li><a onclick="scrollToSection('tarifas')">Tarifas</a></li>
+            <li><a onclick="scrollToSection('contacto')">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Hero - Videos en orden inverso -->
+    <!-- Hero - Videos orden: 6,5,7,4,3,2,1 -->
     <section class="hero" id="inicio">
         <div class="video-background" id="videoBackground">
             <div class="video-slider">
                 <div class="video-slide active">
-                    <video autoplay muted loop playsinline preload="auto">
-                        <source src="video7.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-slide">
                     <video autoplay muted loop playsinline preload="auto">
                         <source src="video6.mp4" type="video/mp4">
                     </video>
@@ -753,6 +834,11 @@
                 <div class="video-slide">
                     <video autoplay muted loop playsinline preload="auto">
                         <source src="video5.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-slide">
+                    <video autoplay muted loop playsinline preload="auto">
+                        <source src="video7.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-slide">
@@ -792,22 +878,22 @@
         </div>
     </section>
 
-    <!-- Semblanza - Foto de fondo grande y elegante -->
+    <!-- Semblanza - Foto de fondo hacia la izquierda -->
     <section class="about" id="semblanza">
         <div class="about-background">
             <img src="andrea-perfil.jpg" alt="Andrea Salas">
         </div>
         
         <div class="about-content">
-            <div class="section-header" style="margin-bottom: 3rem;">
-                <p class="section-number">01</p>
-                <h2 class="section-title">Semblanza</h2>
-                <div class="divider"></div>
+            <div class="section-header" style="margin-bottom: 3rem; text-align: left;">
+                <p class="section-number" style="text-align: left;">01</p>
+                <h2 class="section-title" style="text-align: left;">Semblanza</h2>
+                <div class="divider" style="margin: 2rem 0;"></div>
             </div>
             
             <p class="bio-text">
                 Andrea Salas Rosas es violinista queretana con formación en el 
-                <em>Conservatorio de Música José Guadope Velázquez</em> y experiencia en la 
+                <em>Conservatorio de Música José Guadalupe Velázquez</em> y experiencia en la 
                 musicalización de bodas, XV años, ceremonias religiosas y eventos especiales.
                 <br><br>
                 Su propuesta se distingue por la sensibilidad, elegancia y versatilidad, 
@@ -824,7 +910,7 @@
         </div>
     </section>
 
-    <!-- Repertorio -->
+    <!-- Repertorio - Acordeón desplegable -->
     <section id="repertorio">
         <div class="section-header">
             <p class="section-number">02</p>
@@ -832,61 +918,70 @@
             <div class="divider"></div>
         </div>
         
-        <div class="repertoire-list-simple">
-            <ul>
-                <li>A Sky Full of Stars <span class="artist-name">— Coldplay</span></li>
-                <li>A Thousand Years <span class="artist-name">— Christina Perri</span></li>
-                <li>Africa <span class="artist-name">— Toto</span></li>
-                <li>All You Need Is Love <span class="artist-name">— The Beatles</span></li>
-                <li>Amor eterno <span class="artist-name">— Juan Gabriel</span></li>
-                <li>As It Was <span class="artist-name">— Harry Styles</span></li>
-                <li>Bailando <span class="artist-name">— Enrique Iglesias</span></li>
-                <li>Bésame mucho <span class="artist-name">— Consuelo Velázquez</span></li>
-                <li>Birds of a Feather <span class="artist-name">— Billie Eilish</span></li>
-                <li>Brillas <span class="artist-name">— León Larregui</span></li>
-                <li>Canon en Re <span class="artist-name">— Johann Pachelbel</span></li>
-                <li>Chihiro <span class="artist-name">— Billie Eilish</span></li>
-                <li>Cien años <span class="artist-name">— Pedro Infante</span></li>
-                <li>Cold Heart <span class="artist-name">— Elton John / Dua Lipa</span></li>
-                <li>Cómo han pasado los años <span class="artist-name">— Rocío Dúrcal</span></li>
-                <li>Contigo <span class="artist-name">— Claudio Estrada</span></li>
-                <li>Dance Monkey <span class="artist-name">— Tones and I</span></li>
-                <li>Despacito <span class="artist-name">— Luis Fonsi</span></li>
-                <li>Die With a Smile <span class="artist-name">— Bruno Mars</span></li>
-                <li>Don't Start Now <span class="artist-name">— Dua Lipa</span></li>
-                <li>Espresso <span class="artist-name">— Sabrina Carpenter</span></li>
-                <li>Golden Hour <span class="artist-name">— JVKE</span></li>
-                <li>Hasta mi final <span class="artist-name">— Il Divo</span></li>
-                <li>Here Comes the Sun <span class="artist-name">— The Beatles</span></li>
-                <li>Historia de un amor <span class="artist-name">— Carlos Eleta Almarán</span></li>
-                <li>Il Mondo <span class="artist-name">— Jimmy Fontana</span></li>
-                <li>Imagine <span class="artist-name">— John Lennon</span></li>
-                <li>La chica de Ipanema <span class="artist-name">— Antônio Carlos Jobim</span></li>
-                <li>Leave the Door Open <span class="artist-name">— Bruno Mars</span></li>
-                <li>Let It Be <span class="artist-name">— The Beatles</span></li>
-                <li>Levitating <span class="artist-name">— Dua Lipa</span></li>
-                <li>Love <span class="artist-name">— Nat King Cole</span></li>
-                <li>Love Never Felt So Good <span class="artist-name">— Michael Jackson / Justin Timberlake</span></li>
-                <li>Merry-Go-Round of Life <span class="artist-name">— Joe Hisaishi</span></li>
-                <li>Perfect <span class="artist-name">— Ed Sheeran</span></li>
-                <li>Piel canela <span class="artist-name">— Bobby Capó</span></li>
-                <li>Rolling in the Deep <span class="artist-name">— Adele</span></li>
-                <li>Sabor a mí <span class="artist-name">— Álvaro Carrillo</span></li>
-                <li>Save Your Tears <span class="artist-name">— The Weeknd</span></li>
-                <li>September <span class="artist-name">— Earth, Wind & Fire</span></li>
-                <li>Solamente una vez <span class="artist-name">— Agustín Lara</span></li>
-                <li>Somos novios <span class="artist-name">— Armando Manzanero</span></li>
-                <li>Sugar <span class="artist-name">— Maroon 5</span></li>
-                <li>Te quiero dijiste <span class="artist-name">— María Grever</span></li>
-                <li>Tema de Lara <span class="artist-name">— Maurice Jarre</span></li>
-                <li>Thinking Out Loud <span class="artist-name">— Ed Sheeran</span></li>
-                <li>Todo cambió <span class="artist-name">— Camila</span></li>
-                <li>Under Pressure <span class="artist-name">— Queen</span></li>
-                <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
-                <li>Yesterday <span class="artist-name">— The Beatles</span></li>
-                <li>Yellow Submarine <span class="artist-name">— The Beatles</span></li>
-                <li>¿Quién será la que me quiera a mí?</li>
-            </ul>
+        <div class="repertoire-accordion">
+            <div class="accordion-header" onclick="toggleAccordion()">
+                <span>Ver lista completa de canciones</span>
+                <span class="accordion-icon">▼</span>
+            </div>
+            
+            <div class="accordion-content" id="repertoireContent">
+                <div class="repertoire-list-simple">
+                    <ul>
+                        <li>A Sky Full of Stars <span class="artist-name">— Coldplay</span></li>
+                        <li>A Thousand Years <span class="artist-name">— Christina Perri</span></li>
+                        <li>Africa <span class="artist-name">— Toto</span></li>
+                        <li>All You Need Is Love <span class="artist-name">— The Beatles</span></li>
+                        <li>Amor eterno <span class="artist-name">— Juan Gabriel</span></li>
+                        <li>As It Was <span class="artist-name">— Harry Styles</span></li>
+                        <li>Bailando <span class="artist-name">— Enrique Iglesias</span></li>
+                        <li>Bésame mucho <span class="artist-name">— Consuelo Velázquez</span></li>
+                        <li>Birds of a Feather <span class="artist-name">— Billie Eilish</span></li>
+                        <li>Brillas <span class="artist-name">— León Larregui</span></li>
+                        <li>Canon en Re <span class="artist-name">— Johann Pachelbel</span></li>
+                        <li>Chihiro <span class="artist-name">— Billie Eilish</span></li>
+                        <li>Cien años <span class="artist-name">— Pedro Infante</span></li>
+                        <li>Cold Heart <span class="artist-name">— Elton John / Dua Lipa</span></li>
+                        <li>Cómo han pasado los años <span class="artist-name">— Rocío Dúrcal</span></li>
+                        <li>Contigo <span class="artist-name">— Claudio Estrada</span></li>
+                        <li>Dance Monkey <span class="artist-name">— Tones and I</span></li>
+                        <li>Despacito <span class="artist-name">— Luis Fonsi</span></li>
+                        <li>Die With a Smile <span class="artist-name">— Bruno Mars</span></li>
+                        <li>Don't Start Now <span class="artist-name">— Dua Lipa</span></li>
+                        <li>Espresso <span class="artist-name">— Sabrina Carpenter</span></li>
+                        <li>Golden Hour <span class="artist-name">— JVKE</span></li>
+                        <li>Hasta mi final <span class="artist-name">— Il Divo</span></li>
+                        <li>Here Comes the Sun <span class="artist-name">— The Beatles</span></li>
+                        <li>Historia de un amor <span class="artist-name">— Carlos Eleta Almarán</span></li>
+                        <li>Il Mondo <span class="artist-name">— Jimmy Fontana</span></li>
+                        <li>Imagine <span class="artist-name">— John Lennon</span></li>
+                        <li>La chica de Ipanema <span class="artist-name">— Antônio Carlos Jobim</span></li>
+                        <li>Leave the Door Open <span class="artist-name">— Bruno Mars</span></li>
+                        <li>Let It Be <span class="artist-name">— The Beatles</span></li>
+                        <li>Levitating <span class="artist-name">— Dua Lipa</span></li>
+                        <li>Love <span class="artist-name">— Nat King Cole</span></li>
+                        <li>Love Never Felt So Good <span class="artist-name">— Michael Jackson / Justin Timberlake</span></li>
+                        <li>Merry-Go-Round of Life <span class="artist-name">— Joe Hisaishi</span></li>
+                        <li>Perfect <span class="artist-name">— Ed Sheeran</span></li>
+                        <li>Piel canela <span class="artist-name">— Bobby Capó</span></li>
+                        <li>Rolling in the Deep <span class="artist-name">— Adele</span></li>
+                        <li>Sabor a mí <span class="artist-name">— Álvaro Carrillo</span></li>
+                        <li>Save Your Tears <span class="artist-name">— The Weeknd</span></li>
+                        <li>September <span class="artist-name">— Earth, Wind & Fire</span></li>
+                        <li>Solamente una vez <span class="artist-name">— Agustín Lara</span></li>
+                        <li>Somos novios <span class="artist-name">— Armando Manzanero</span></li>
+                        <li>Sugar <span class="artist-name">— Maroon 5</span></li>
+                        <li>Te quiero dijiste <span class="artist-name">— María Grever</span></li>
+                        <li>Tema de Lara <span class="artist-name">— Maurice Jarre</span></li>
+                        <li>Thinking Out Loud <span class="artist-name">— Ed Sheeran</span></li>
+                        <li>Todo cambió <span class="artist-name">— Camila</span></li>
+                        <li>Under Pressure <span class="artist-name">— Queen</span></li>
+                        <li>We Can't Be Friends <span class="artist-name">— Ariana Grande</span></li>
+                        <li>Yesterday <span class="artist-name">— The Beatles</span></li>
+                        <li>Yellow Submarine <span class="artist-name">— The Beatles</span></li>
+                        <li>¿Quién será la que me quiera a mí?</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -941,7 +1036,7 @@
         </div>
     </section>
 
-    <!-- Tarifas -->
+    <!-- Tarifas - Sin precio, con información clara de cotización -->
     <section id="tarifas">
         <div class="section-header">
             <p class="section-number">04</p>
@@ -951,15 +1046,28 @@
 
         <div class="pricing-container">
             <div class="pricing-card">
-                <h3 class="package-name">Servicio por Hora</h3>
-                <div class="price"><span class="price-currency">$</span>2,500</div>
-                <p style="color: var(--gray-mid); font-style: italic; margin-bottom: 2rem; font-family: 'The Seasons', serif;">incluye:</p>
+                <h3 class="package-name">Servicio Personalizado</h3>
+                
+                <p class="package-intro">
+                    Cada evento es único. El servicio base incluye los siguientes elementos, 
+                    con opción de agregar más músicos o tiempo según tus necesidades.
+                </p>
+
                 <ul class="package-features">
                     <li>1 hora de música en vivo</li>
-                    <li>Equipo de audio para hasta 100 personas</li>
+                    <li>1 violín acústico (solista)</li>
+                    <li>Equipo de audio para máximo 100 personas</li>
                     <li>Repertorio personalizado</li>
-                    <li>Violín acústico</li>
                 </ul>
+
+                <div class="pricing-note">
+                    <div class="pricing-note-title">¿Necesitas más?</div>
+                    <p>
+                        Es posible ampliar el servicio con más tiempo de música, 
+                        o contratar formato dúo, trío o cuarteto de cuerdas. 
+                        Contáctame para una cotización personalizada según los requerimientos de tu evento.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -1030,8 +1138,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Comentarios adicionales</label>
-                    <textarea id="specialRequests" rows="3"></textarea>
+                    <label>Duración del servicio y formato deseado</label>
+                    <textarea id="specialRequests" rows="3" placeholder="Ej: 2 horas, dúo de violines..."></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Enviar por WhatsApp</button>
                 <p class="form-note">* Campos obligatorios</p>
@@ -1041,6 +1149,14 @@
 
     <!-- Scripts -->
     <script>
+        // Scroll suave para navegación
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         // Scroll effect for video background
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
@@ -1059,7 +1175,7 @@
             }
         });
 
-        // Background video slider - orden inverso 7,6,5,4,3,2,1
+        // Background video slider - orden: 6,5,7,4,3,2,1
         let currentBgSlide = 0;
         const bgSlides = document.querySelectorAll('.video-background .video-slide');
         const totalBgSlides = bgSlides.length;
@@ -1072,7 +1188,24 @@
 
         setInterval(changeBgSlide, 8000);
 
-        // Videos Carousel - Manual (sin auto-play)
+        // Acordeón para repertorio
+        function toggleAccordion() {
+            const content = document.getElementById('repertoireContent');
+            const header = document.querySelector('.accordion-header');
+            
+            content.classList.toggle('active');
+            header.classList.toggle('active');
+            
+            // Cambiar texto del botón
+            const span = header.querySelector('span:first-child');
+            if (content.classList.contains('active')) {
+                span.textContent = 'Ocultar lista de canciones';
+            } else {
+                span.textContent = 'Ver lista completa de canciones';
+            }
+        }
+
+        // Videos Carousel - Manual
         let currentSlide = 0;
         const totalSlides = 6;
 
