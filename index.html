@@ -370,20 +370,41 @@
             .repertoire-list-simple { 
                 column-count: 1; 
             }
+            
+            /* CAMBIOS EN SEMBLANZA PARA MÓVIL */
+            /* Ocultar la imagen de fondo en móvil */
+            .about-background {
+                display: none;
+            }
+            
+            /* Ajustar el contenido para que ocupe todo el ancho y esté centrado */
             .about-content {
                 margin: 0 auto;
                 padding: 2rem;
-                background: rgba(32,54,46,0.9);
                 max-width: 95%;
                 text-align: center;
+                /* Quitar fondo opaco, usar el fondo de la sección */
+                background: transparent;
             }
-            .about-background {
-                width: 100%;
-                opacity: 0.5;
+            
+            /* Centrar los títulos de la sección semblanza */
+            .about .section-header {
+                text-align: center !important;
             }
-            .about-background::after {
-                background: linear-gradient(to right, rgba(32,54,46,0.7), rgba(32,54,46,0.95));
+            
+            .about .section-number {
+                text-align: center !important;
             }
+            
+            .about .section-title {
+                text-align: center !important;
+            }
+            
+            /* Centrar el texto de la biografía */
+            .bio-text {
+                text-align: center;
+            }
+            
             .logo {
                 height: 80px;
             }
@@ -398,9 +419,6 @@
             }
             .section-header h2, .section-header p {
                 text-align: center !important;
-            }
-            .bio-text {
-                text-align: center;
             }
         }
 
